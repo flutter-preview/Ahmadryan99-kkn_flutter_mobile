@@ -3,11 +3,13 @@ import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/home_screen.dart';
 import 'package:boilerplate_ui/views/setting_screen.dart';
-import 'package:boilerplate_ui/views/auth/register_screen.dart';
 import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+
+import 'auth/register_screen.dart';
+import 'logbook/logbook_screen.dart';
 
 class AppScreen extends StatefulWidget {
   final int selectedPage;
@@ -184,8 +186,8 @@ class _AppScreenState extends State<AppScreen>
               controller: _tabController,
               children: <Widget>[
                 HomeScreen(),
+                LogbookScreen(),
                 LoginScreen(),
-                RegisterScreen(),
                 SettingScreen()
               ],
             ),
