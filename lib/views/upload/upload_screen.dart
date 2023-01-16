@@ -104,6 +104,7 @@ class _UploadScreenState extends State<UploadScreen> {
                       child: Row(
                         children: [
                           Icon(IconlyLight.document, color: Colors.white),
+                          Padding(padding: EdgeInsets.symmetric(horizontal: 3)),
                           Text(
                             'Artikel',
                             style: TextStyle(
@@ -157,33 +158,72 @@ class _UploadScreenState extends State<UploadScreen> {
                             ],
                           ),
                         )),
-                    Container(
-                      padding: EdgeInsets.only(left: 15, top: 257),
-                      child: SizedBox(
-                        width: 360,
-                        height: 95,
-                        child: Column(
-                          children: [
-                            Container(
+                    Stack(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 15, top: 257),
+                          child: SizedBox(
+                            child: Container(
+                              width: 360,
+                              height: 95,
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     color: Color(0xff71D16A)),
-                                    child: Row(
-                                      children: [
-                                        Padding(padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9
-                                        )),
-                                        Icon(IconlyBold.video,color: Colors.white,),
-                                        Text('Video', style: TextStyle(fontSize: 12,
-                                        color: Colors.white,),)
-                                      ], 
-                                    ),
                               ),
                             ),
-                          ],
+                          ),
                         ),
-                        
-                      ),
+                        Positioned(
+                          top: 265,
+                          left: 5,
+                          child: Row(
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 18, vertical: 2)),
+                              Icon(
+                                IconlyBold.video,
+                                color: Colors.white,
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 3)),
+                              Text(
+                                'Video',
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              )
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          left: 26,
+                          top: 295,
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            color: Colors.white,
+                            radius: Radius.circular(12),
+                            child: Container(
+                              height: 45,
+                              width: 335,
+                              color: Color.fromARGB(255, 147, 211, 144),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 310,
+                          left: 35,
+                            child: Text(
+                          'Link Video Youtube ',
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w600,
+                              fontStyle: FontStyle.italic,
+                              color: Colors.white
+                              ),
+                        ))
+                      ],
                     ),
                   ],
                 ),
