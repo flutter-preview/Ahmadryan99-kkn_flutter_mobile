@@ -7,7 +7,7 @@ import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
-
+import 'upload/upload_screen.dart';
 import 'auth/register_screen.dart';
 import 'logbook/logbook_screen.dart';
 
@@ -187,7 +187,7 @@ class _AppScreenState extends State<AppScreen>
               children: <Widget>[
                 HomeScreen(),
                 LogbookScreen(),
-                LoginScreen(),
+                UploadScreen(),
                 SettingScreen()
               ],
             ),

@@ -21,25 +21,22 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  carousel_slider: ^4.1.1
+  cupertino_icons: ^1.0.5
+  dotted_border: 
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.5
+  flutter_html: ^2.2.1
+  font_awesome_flutter: ^10.3.0
+  google_fonts: ^3.0.1
   http: ^0.13.5
+  iconly: ^1.0.1
+  image_picker: ^0.8.6
+  material_design_icons_flutter: ^5.0.6996
   provider: ^6.0.4
   shared_preferences: ^2.0.15
-  material_design_icons_flutter: ^5.0.6996
-  google_fonts: ^3.0.1
-  flutter_html: ^2.2.1
-  url_launcher: ^6.1.6
   shimmer: ^2.0.0
-  image_picker: ^0.8.6
-  carousel_slider: ^4.1.1
-
-
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +44,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -72,19 +68,15 @@ flutter:
     - assets/images/images.jpg
     - assets/images/
 
-
     #Images - Categories
     - assets/images/categories/double_tree.png
     - assets/images/categories/earth.png
     - assets/images/categories/love.png
     - assets/images/categories/pinus.png
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
