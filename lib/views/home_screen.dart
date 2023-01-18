@@ -5,6 +5,7 @@ import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'logbook/nilai.dart/nilai_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -268,6 +269,13 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Color(0xff42C83C),
           )),
         ),
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pop(MaterialPageRoute(builder: (context) {
+              return NilaiScreen();
+            }));
+          },
+        ),
         Row(
           children: [
             Container(
@@ -305,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: Spacing.only(top: 10),
       child: Column(
         children: [
-            Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Info Kelompok",
@@ -337,7 +345,6 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: <Widget>[
-          
           Container(
             width: 125,
             height: 155,
@@ -345,11 +352,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: themeData.colorScheme.primary.withAlpha(20),
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  fit: BoxFit.cover,
+                    fit: BoxFit.cover,
                     image: AssetImage(
-                  imgCategoryList[index],
-                ))),
-                
+                      imgCategoryList[index],
+                    ))),
             padding: Spacing.all(15),
           ),
           Container(
@@ -368,7 +374,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _newsWidget() {
-
     return Container(
       padding: Spacing.only(top: 20, bottom: 20),
       child: Column(
@@ -388,19 +393,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           _newsListWidget()
-         
         ],
       ),
     );
   }
-  _newsListWidget(){
+
+  _newsListWidget() {
     List<Widget> list = [];
     list = List.generate(imgNews.length, (_) => _singleNews(_));
-return Column(
-  children:list
-); 
-
+    return Column(children: list);
   }
+
   _singleNews(int index) {
     return Column(children: [
       Container(
@@ -413,12 +416,15 @@ return Column(
         margin: Spacing.symmetric(vertical: 10),
       ),
       Container(
-        child: Text('Pasar Malam di Desa Rejowilangun Kelompok 5',
-        style: TextStyle(color: Colors.black,
-        fontSize: 16,
-        fontWeight: FontWeight.w400,
+        child: Text(
+          'Pasar Malam di Desa Rejowilangun Kelompok 5',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
+          maxLines: 2,
         ),
-        maxLines: 2,),
       ),
     ]);
   }

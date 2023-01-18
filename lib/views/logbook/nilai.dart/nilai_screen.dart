@@ -1,16 +1,18 @@
 import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
+import 'package:boilerplate_ui/utils/SizeConfig.dart';
+import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:provider/provider.dart';
 
-class UploadScreen extends StatefulWidget {
+class NilaiScreen extends StatefulWidget {
   @override
-  _UploadScreenState createState() => _UploadScreenState();
+  _NilaiScreenState createState() => _NilaiScreenState();
 }
 
-class _UploadScreenState extends State<UploadScreen> {
+class _NilaiScreenState extends State<NilaiScreen> {
   //ThemeData
   ThemeData themeData;
   CustomAppTheme customAppTheme;
