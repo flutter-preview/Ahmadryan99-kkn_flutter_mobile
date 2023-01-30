@@ -47,9 +47,8 @@ class _SelectThemeDialogState extends State<SelectThemeDialog> {
                         ),
                         Text("Light",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.subtitle2,
+                                themeData.textTheme.titleSmall,
                                 fontWeight: 600)),
-                        
                       ],
                     ),
                   ),
@@ -72,9 +71,8 @@ class _SelectThemeDialogState extends State<SelectThemeDialog> {
                         ),
                         Text("Dark",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.subtitle2,
+                                themeData.textTheme.titleSmall,
                                 fontWeight: 600)),
-                        
                       ],
                     ),
                   ),

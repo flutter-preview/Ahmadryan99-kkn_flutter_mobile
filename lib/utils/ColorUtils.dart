@@ -1,10 +1,10 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../app_theme.dart';
 
-class ColorUtils{
-  static Color getColorFromRating(int rating,CustomAppTheme customAppTheme,ThemeData themeData){
-    switch(rating){
+class ColorUtils {
+  static Color getColorFromRating(
+      int rating, CustomAppTheme customAppTheme, ThemeData themeData) {
+    switch (rating) {
       case 0:
       case 1:
         return customAppTheme.colorError;
@@ -27,7 +27,6 @@ class ColorUtils{
     return Color(int.parse(buffer.toString(), radix: 16));
   }
 
-
   static Color getColorFromOrderStatus(int status) {
     switch (status) {
       case -2:
@@ -47,5 +46,4 @@ class ColorUtils{
         return getColorFromOrderStatus(1);
     }
   }
-
 }

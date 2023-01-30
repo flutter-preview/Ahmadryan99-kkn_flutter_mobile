@@ -22,7 +22,6 @@ class _LogbookScreenState extends State<LogbookScreen> {
 
   //Other Variables
   bool isInProgress = false;
-  int _current = 0;
 
   @override
   void initState() {
@@ -117,12 +116,12 @@ class _LogbookScreenState extends State<LogbookScreen> {
       return Container(
           padding: Spacing.only(left: 8, top: 20, right: 8),
           child: ListView.builder(
-            itemCount: 30,
-            itemBuilder: (_, index) => logbookItem(index: index)));
+              itemCount: 30,
+              itemBuilder: (_, index) => logbookItem(index: index)));
     }
   }
 
-  Widget logbookItem({ int index}) {
+  Widget logbookItem({int index}) {
     return Column(
       children: [
         ListTile(

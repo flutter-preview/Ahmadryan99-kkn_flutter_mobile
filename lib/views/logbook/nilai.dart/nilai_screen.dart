@@ -1,7 +1,5 @@
 import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
-import 'package:boilerplate_ui/utils/SizeConfig.dart';
-import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -18,7 +16,6 @@ class _NilaiScreenState extends State<NilaiScreen> {
   CustomAppTheme customAppTheme;
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
 
   //Other Variables
   bool isInProgress = false;
@@ -49,7 +46,6 @@ class _NilaiScreenState extends State<NilaiScreen> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -207,16 +203,16 @@ class _NilaiScreenState extends State<NilaiScreen> {
                           ),
                         ),
                         Positioned(
-                          top: 310,
-                          left: 35,
+                            top: 310,
+                            left: 35,
                             child: Text(
-                          'Link Video Youtube ',
-                          style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.white
-                              ),
-                        ))
+                              'Link Video Youtube ',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.white),
+                            ))
                       ],
                     ),
                   ],

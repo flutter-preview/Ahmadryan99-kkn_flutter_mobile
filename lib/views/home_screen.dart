@@ -5,7 +5,6 @@ import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'logbook/nilai.dart/nilai_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -144,11 +143,11 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Text("Welcome",
               style: AppTheme.getTextStyle(
-                themeData.textTheme.headline6,
+                themeData.textTheme.titleLarge,
               )),
           Text(
             "Ahmad Ryan N. Y.",
-            style: AppTheme.getTextStyle(themeData.textTheme.headline6,
+            style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
                 color: themeData.colorScheme.primary, fontWeight: 700),
           ),
         ],
@@ -246,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: _current == index
-                    ? themeData.colorScheme.secondaryVariant
+                    ? themeData.colorScheme.secondaryContainer
                     : Colors.grey[400],
               ),
             );
@@ -268,13 +267,6 @@ class _HomeScreenState extends State<HomeScreen> {
             borderRadius: BorderRadius.circular(32),
             color: Color(0xff42C83C),
           )),
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.of(context).pop(MaterialPageRoute(builder: (context) {
-              return NilaiScreen();
-            }));
-          },
         ),
         Row(
           children: [
@@ -317,12 +309,13 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Info Kelompok",
-                  style: AppTheme.getTextStyle(themeData.textTheme.headline6,
+                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
                   onTap: () {},
                   child: Text("Lihat semua",
-                      style: AppTheme.getTextStyle(themeData.textTheme.caption,
+                      style: AppTheme.getTextStyle(
+                          themeData.textTheme.bodySmall,
                           fontWeight: 700,
                           color: themeData.colorScheme.primary))),
             ],
@@ -364,7 +357,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               nameCategoryList[index],
               textAlign: TextAlign.center,
-              style: AppTheme.getTextStyle(themeData.textTheme.caption,
+              style: AppTheme.getTextStyle(themeData.textTheme.bodySmall,
                   fontWeight: 600, letterSpacing: 0),
             ),
           )
@@ -382,12 +375,13 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Acara",
-                  style: AppTheme.getTextStyle(themeData.textTheme.headline6,
+                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
                   onTap: () {},
                   child: Text("Lihat semua",
-                      style: AppTheme.getTextStyle(themeData.textTheme.caption,
+                      style: AppTheme.getTextStyle(
+                          themeData.textTheme.bodySmall,
                           fontWeight: 700,
                           color: themeData.colorScheme.primary))),
             ],

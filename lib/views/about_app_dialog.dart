@@ -13,8 +13,7 @@ class AboutAppDialog extends StatefulWidget {
 class _AboutAppDialogState extends State<AboutAppDialog> {
   ThemeData themeData;
 
-  String appDescription =
-      "aplikasi ini masih coba coba";
+  String appDescription = "aplikasi ini masih coba coba";
 
   Widget build(BuildContext context) {
     themeData = Theme.of(context);
@@ -45,21 +44,20 @@ class _AboutAppDialogState extends State<AboutAppDialog> {
                         children: <Widget>[
                           Text("Aplikasi Apa Ini : ",
                               style: AppTheme.getTextStyle(
-                                themeData.textTheme.headline6,
+                                themeData.textTheme.titleLarge,
                               )),
                           SizedBox(height: MySize.size10),
                           Text(
                             "Aplikasi Kuntul",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.headline6,
+                                themeData.textTheme.titleLarge,
                                 color: themeData.colorScheme.primary,
                                 fontWeight: 700),
                           ),
                           Container(
                             margin: Spacing.only(top: 20, bottom: 20),
                             decoration: BoxDecoration(
-                                color:
-                                    themeData.colorScheme.onPrimary,
+                                color: themeData.colorScheme.onPrimary,
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   //Set your logo App Here
@@ -74,9 +72,9 @@ class _AboutAppDialogState extends State<AboutAppDialog> {
                             child: Container(
                               padding: Spacing.all(20),
                               child: Text(appDescription,
-                              textAlign: TextAlign.justify,
+                                  textAlign: TextAlign.justify,
                                   style: AppTheme.getTextStyle(
-                                    themeData.textTheme.caption,
+                                    themeData.textTheme.bodySmall,
                                   )),
                             ),
                           )

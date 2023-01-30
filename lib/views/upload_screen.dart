@@ -17,7 +17,6 @@ class _UploadScreenState extends State<UploadScreen> {
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-
   //Other Variables
   bool isInProgress = false;
 
@@ -47,7 +46,6 @@ class _UploadScreenState extends State<UploadScreen> {
       }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -205,16 +203,16 @@ class _UploadScreenState extends State<UploadScreen> {
                           ),
                         ),
                         Positioned(
-                          top: 310,
-                          left: 35,
+                            top: 310,
+                            left: 35,
                             child: Text(
-                          'Link Video Youtube ',
-                          style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.white
-                              ),
-                        ))
+                              'Link Video Youtube ',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.white),
+                            ))
                       ],
                     ),
                   ],

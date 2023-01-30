@@ -1,7 +1,6 @@
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/select_theme_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../app_theme.dart';
@@ -48,7 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   centerTitle: true,
                   title: Text("Setting",
                       style: AppTheme.getTextStyle(
-                          themeData.appBarTheme.textTheme.headline6,
+                          themeData.appBarTheme.titleTextStyle,
                           fontWeight: 600,
                           color: themeData.colorScheme.onPrimary)),
                 ),
@@ -101,11 +100,11 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Text("Ahmad Ryan N. Y.",
                       style: AppTheme.getTextStyle(
-                        themeData.textTheme.headline6,
+                        themeData.textTheme.titleLarge,
                       )),
                   Text("Kelompok 4",
                       style: AppTheme.getTextStyle(
-                        themeData.textTheme.caption,
+                        themeData.textTheme.bodySmall,
                         fontWeight: 500,
                       )),
                 ],
@@ -123,8 +122,12 @@ class _SettingScreenState extends State<SettingScreen> {
                   builder: (BuildContext context) => SelectThemeDialog());
             }),
         _menuItem(title: "Tema", icon: Icons.star_rate_rounded, onTap: () {}),
-        _menuItem(title: "Pusat Bantuan", icon:Icons.call_rounded, onTap: () {}),
-        _menuItem(title: "Kebijakan Privasi", icon: Icons.shield_outlined, onTap: () {}),
+        _menuItem(
+            title: "Pusat Bantuan", icon: Icons.call_rounded, onTap: () {}),
+        _menuItem(
+            title: "Kebijakan Privasi",
+            icon: Icons.shield_outlined,
+            onTap: () {}),
         _menuItem(
             title: "Tentang Kami",
             icon: Icons.accessibility_new_rounded,
@@ -152,7 +155,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 SizedBox(width: MySize.size24),
                 Text(title,
                     style: AppTheme.getTextStyle(
-                      themeData.textTheme.subtitle1,
+                      themeData.textTheme.titleMedium,
                       fontWeight: 600,
                     ))
               ],

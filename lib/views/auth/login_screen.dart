@@ -56,35 +56,19 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   _handleLogin() async {
-    String email = emailTFController.text;
-    String password = passwordTFController.text;
-
-    // if (email.isEmpty) {
-    //   showMessage(message: "Masukan Nomer Induk Mahasiswa");
-    // } else if (Validator.isEmail(email)) {
-    //   showMessage(message: "Masukan Nomer Induk Mahasiswa");
-    // } else if (password.isEmpty) {
-    //   showMessage(message: "Masukan Password");
-    // } else {
-    //   if (mounted) {
-    //     setState(() {
-    //       isInProgress = true;
-    //     });
-      // }
-
-      await Future.delayed(Duration(seconds: 1), () {
-        if (mounted) {
-          setState(() {
-            isInProgress = false;
-          });
-        }
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => AppScreen(),
-          ),
-        );
-      });
+    await Future.delayed(Duration(seconds: 1), () {
+      if (mounted) {
+        setState(() {
+          isInProgress = false;
+        });
+      }
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (BuildContext context) => AppScreen(),
+        ),
+      );
+    });
     // }
   }
 
@@ -109,35 +93,37 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: <Widget>[
                         Container(
                           alignment: Alignment.center,
-                          child: Text('KKN',
-                          style: TextStyle(
-                            color: Colors.green[400],
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold
-                          ),),
+                          child: Text(
+                            'KKN',
+                            style: TextStyle(
+                                color: Colors.green[400],
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-                          Container(
+                        Container(
                           alignment: Alignment.center,
-                          child: Text('UNU BLITAR',
-                          style: TextStyle(
-                            color: Colors.green[400],
-                             fontSize: 40,
-                            fontWeight: FontWeight.bold
-                          ),),
+                          child: Text(
+                            'UNU BLITAR',
+                            style: TextStyle(
+                                color: Colors.green[400],
+                                fontSize: 40,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                         SizedBox(height: 158),
                         Container(
                           margin: Spacing.fromLTRB(24, 24, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyText1,
+                                themeData.textTheme.bodyLarge,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Nomer Induk Mahasiswa",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.subtitle2,
+                                    themeData.textTheme.titleSmall,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -159,13 +145,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextFormField(
                             obscureText: !showPassword,
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyText1,
+                                themeData.textTheme.bodyLarge,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                               hintStyle: AppTheme.getTextStyle(
-                                  themeData.textTheme.subtitle2,
+                                  themeData.textTheme.titleSmall,
                                   letterSpacing: 0.1,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 500),
@@ -243,7 +229,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           : Text(
                                               "MASUK".toUpperCase(),
                                               style: AppTheme.getTextStyle(
-                                                  themeData.textTheme.bodyText2,
+                                                  themeData
+                                                      .textTheme.bodyMedium,
                                                   color: themeData
                                                       .colorScheme.onPrimary,
                                                   letterSpacing: 0.8,
@@ -268,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 "Ada Kendala? Klick Disini",
                                 style: AppTheme.getTextStyle(
-                                    themeData.textTheme.bodyText2,
+                                    themeData.textTheme.bodyMedium,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500,
                                     decoration: TextDecoration.underline),

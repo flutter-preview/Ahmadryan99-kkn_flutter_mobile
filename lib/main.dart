@@ -1,4 +1,3 @@
-import 'package:boilerplate_ui/views/app_screen.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +11,6 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) async {
-
     runApp(ChangeNotifierProvider<AppThemeNotifier>(
       create: (context) => AppThemeNotifier(),
       child: MyApp(),
@@ -47,12 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
     MySize().init(context);
     themeData = Theme.of(context);
-    return  LoginScreen();
+    return LoginScreen();
   }
 }

@@ -47,7 +47,7 @@ class AppTheme {
   static TextStyle getTextStyle(TextStyle textStyle,
       {int fontWeight = 500,
       bool muted = false,
-        bool xMuted =false,
+      bool xMuted = false,
       double letterSpacing = 0.15,
       Color color,
       TextDecoration decoration = TextDecoration.none,
@@ -57,12 +57,15 @@ class AppTheme {
     double finalFontSize = fontSize != null ? fontSize : textStyle.fontSize;
 
     Color finalColor;
-    if(color==null){
-      finalColor= xMuted ? textStyle.color.withAlpha(160) : (muted ? textStyle.color.withAlpha(200) : textStyle.color);
-    }else{
-      finalColor = xMuted ? color.withAlpha(160) : ( muted ? color.withAlpha(200) : color);
+    if (color == null) {
+      finalColor = xMuted
+          ? textStyle.color.withAlpha(160)
+          : (muted ? textStyle.color.withAlpha(200) : textStyle.color);
+    } else {
+      finalColor = xMuted
+          ? color.withAlpha(160)
+          : (muted ? color.withAlpha(200) : color);
     }
-
 
     return fontFamily(
         fontSize: finalFontSize,
@@ -74,142 +77,145 @@ class AppTheme {
         wordSpacing: wordSpacing);
   }
 
+  // ignore: todo
   //TODO :CHANGE APPBAR THEME (LIGHT SCHEME)
   static final TextTheme lightAppBarTextTheme = TextTheme(
-    headline1: fontFamily(
+    displayLarge: fontFamily(
         textStyle: TextStyle(fontSize: 102, color: Color(0xff495057))),
-    headline2: fontFamily(
+    displayMedium: fontFamily(
         textStyle: TextStyle(fontSize: 64, color: Color(0xff495057))),
-    headline3: fontFamily(
+    displaySmall: fontFamily(
         textStyle: TextStyle(fontSize: 51, color: Color(0xff495057))),
-    headline4: fontFamily(
+    headlineMedium: fontFamily(
         textStyle: TextStyle(fontSize: 36, color: Color(0xff495057))),
-    headline5: fontFamily(
+    headlineSmall: fontFamily(
         textStyle: TextStyle(fontSize: 25, color: Color(0xff495057))),
-    headline6: fontFamily(
+    titleLarge: fontFamily(
         textStyle: TextStyle(fontSize: 18, color: Color(0xff495057))),
-    subtitle1: fontFamily(
+    titleMedium: fontFamily(
         textStyle: TextStyle(fontSize: 17, color: Color(0xff495057))),
-    subtitle2: fontFamily(
+    titleSmall: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xff495057))),
-    bodyText1: fontFamily(
+    bodyLarge: fontFamily(
         textStyle: TextStyle(fontSize: 16, color: Color(0xff495057))),
-    bodyText2: fontFamily(
+    bodyMedium: fontFamily(
         textStyle: TextStyle(fontSize: 14, color: Color(0xff495057))),
-    button: fontFamily(
+    labelLarge: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xff495057))),
-    caption: fontFamily(
+    bodySmall: fontFamily(
         textStyle: TextStyle(fontSize: 13, color: Color(0xff495057))),
-    overline: fontFamily(
+    labelSmall: fontFamily(
         textStyle: TextStyle(fontSize: 11, color: Color(0xff495057))),
   );
 
-
+  // ignore: todo
   //TODO :CHANGE APPBAR THEME (DARK SCHEME)
   static final TextTheme darkAppBarTextTheme = TextTheme(
-    headline1: fontFamily(
+    displayLarge: fontFamily(
         textStyle: TextStyle(fontSize: 102, color: Color(0xffffffff))),
-    headline2: fontFamily(
+    displayMedium: fontFamily(
         textStyle: TextStyle(fontSize: 64, color: Color(0xffffffff))),
-    headline3: fontFamily(
+    displaySmall: fontFamily(
         textStyle: TextStyle(fontSize: 51, color: Color(0xffffffff))),
-    headline4: fontFamily(
+    headlineMedium: fontFamily(
         textStyle: TextStyle(fontSize: 36, color: Color(0xffffffff))),
-    headline5: fontFamily(
+    headlineSmall: fontFamily(
         textStyle: TextStyle(fontSize: 25, color: Color(0xffffffff))),
-    headline6: fontFamily(
+    titleLarge: fontFamily(
         textStyle: TextStyle(fontSize: 20, color: Color(0xffffffff))),
-    subtitle1: fontFamily(
+    titleMedium: fontFamily(
         textStyle: TextStyle(fontSize: 17, color: Color(0xffffffff))),
-    subtitle2: fontFamily(
+    titleSmall: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xffffffff))),
-    bodyText1: fontFamily(
+    bodyLarge: fontFamily(
         textStyle: TextStyle(fontSize: 16, color: Color(0xffffffff))),
-    bodyText2: fontFamily(
+    bodyMedium: fontFamily(
         textStyle: TextStyle(fontSize: 14, color: Color(0xffffffff))),
-    button: fontFamily(
+    labelLarge: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xffffffff))),
-    caption: fontFamily(
+    bodySmall: fontFamily(
         textStyle: TextStyle(fontSize: 13, color: Color(0xffffffff))),
-    overline: fontFamily(
+    labelSmall: fontFamily(
         textStyle: TextStyle(fontSize: 11, color: Color(0xffffffff))),
   );
 
+  // ignore: todo
   //TODO :CHANGE TEXT THEME (LIGHT SCHEME)
   static final TextTheme lightTextTheme = TextTheme(
-    headline1: fontFamily(
+    displayLarge: fontFamily(
         textStyle: TextStyle(fontSize: 102, color: Color(0xff4a4c4f))),
-    headline2: fontFamily(
+    displayMedium: fontFamily(
         textStyle: TextStyle(fontSize: 64, color: Color(0xff4a4c4f))),
-    headline3: fontFamily(
+    displaySmall: fontFamily(
         textStyle: TextStyle(fontSize: 51, color: Color(0xff4a4c4f))),
-    headline4: fontFamily(
+    headlineMedium: fontFamily(
         textStyle: TextStyle(fontSize: 36, color: Color(0xff4a4c4f))),
-    headline5: fontFamily(
+    headlineSmall: fontFamily(
         textStyle: TextStyle(fontSize: 25, color: Color(0xff4a4c4f))),
-    headline6: fontFamily(
+    titleLarge: fontFamily(
         textStyle: TextStyle(fontSize: 18, color: Color(0xff4a4c4f))),
-    subtitle1: fontFamily(
+    titleMedium: fontFamily(
         textStyle: TextStyle(fontSize: 17, color: Color(0xff4a4c4f))),
-    subtitle2: fontFamily(
+    titleSmall: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xff4a4c4f))),
-    bodyText1: fontFamily(
+    bodyLarge: fontFamily(
         textStyle: TextStyle(fontSize: 16, color: Color(0xff4a4c4f))),
-    bodyText2: fontFamily(
+    bodyMedium: fontFamily(
         textStyle: TextStyle(fontSize: 14, color: Color(0xff4a4c4f))),
-    button: fontFamily(
+    labelLarge: fontFamily(
         textStyle: TextStyle(fontSize: 15, color: Color(0xff4a4c4f))),
-    caption: fontFamily(
+    bodySmall: fontFamily(
         textStyle: TextStyle(fontSize: 13, color: Color(0xff4a4c4f))),
-    overline: fontFamily(
+    labelSmall: fontFamily(
         textStyle: TextStyle(fontSize: 11, color: Color(0xff4a4c4f))),
   );
 
-  
+  // ignore: todo
   //TODO :CHANGE TEXT THEME (DARK SCHEME)
   static final TextTheme darkTextTheme = TextTheme(
-    headline1: fontFamily(
-        textStyle: TextStyle(fontSize: 102, color: Colors.white)),
-    headline2: fontFamily(
-        textStyle: TextStyle(fontSize: 64, color: Colors.white)),
-    headline3: fontFamily(
-        textStyle: TextStyle(fontSize: 51, color: Colors.white)),
-    headline4: fontFamily(
-        textStyle: TextStyle(fontSize: 36, color: Colors.white)),
-    headline5: fontFamily(
-        textStyle: TextStyle(fontSize: 25, color: Colors.white)),
-    headline6: fontFamily(
-        textStyle: TextStyle(fontSize: 18, color: Colors.white)),
-    subtitle1: fontFamily(
-        textStyle: TextStyle(fontSize: 17, color: Colors.white)),
-    subtitle2: fontFamily(
-        textStyle: TextStyle(fontSize: 15, color: Colors.white)),
-    bodyText1: fontFamily(
-        textStyle: TextStyle(fontSize: 16, color: Colors.white)),
-    bodyText2: fontFamily(
-        textStyle: TextStyle(fontSize: 14, color: Colors.white)),
-    button: fontFamily(
-        textStyle: TextStyle(fontSize: 15, color: Colors.white)),
-    caption: fontFamily(
-        textStyle: TextStyle(fontSize: 13, color: Colors.white)),
-    overline: fontFamily(
-        textStyle: TextStyle(fontSize: 11, color: Colors.white)),
+    displayLarge:
+        fontFamily(textStyle: TextStyle(fontSize: 102, color: Colors.white)),
+    displayMedium:
+        fontFamily(textStyle: TextStyle(fontSize: 64, color: Colors.white)),
+    displaySmall:
+        fontFamily(textStyle: TextStyle(fontSize: 51, color: Colors.white)),
+    headlineMedium:
+        fontFamily(textStyle: TextStyle(fontSize: 36, color: Colors.white)),
+    headlineSmall:
+        fontFamily(textStyle: TextStyle(fontSize: 25, color: Colors.white)),
+    titleLarge:
+        fontFamily(textStyle: TextStyle(fontSize: 18, color: Colors.white)),
+    titleMedium:
+        fontFamily(textStyle: TextStyle(fontSize: 17, color: Colors.white)),
+    titleSmall:
+        fontFamily(textStyle: TextStyle(fontSize: 15, color: Colors.white)),
+    bodyLarge:
+        fontFamily(textStyle: TextStyle(fontSize: 16, color: Colors.white)),
+    bodyMedium:
+        fontFamily(textStyle: TextStyle(fontSize: 14, color: Colors.white)),
+    labelLarge:
+        fontFamily(textStyle: TextStyle(fontSize: 15, color: Colors.white)),
+    bodySmall:
+        fontFamily(textStyle: TextStyle(fontSize: 13, color: Colors.white)),
+    labelSmall:
+        fontFamily(textStyle: TextStyle(fontSize: 11, color: Colors.white)),
   );
 
+  // ignore: todo
   //TODO: CHANGE LIGHT THEME COLOR SCHEME
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: Color(0xFF27ae61),
     canvasColor: Colors.transparent,
-    backgroundColor: Colors.white,
     scaffoldBackgroundColor: Color(0xffffffff),
     appBarTheme: AppBarTheme(
-      textTheme: lightAppBarTextTheme,
       actionsIconTheme: IconThemeData(
         color: Color(0xff495057),
       ),
       color: Color(0xffffffff),
       iconTheme: IconThemeData(color: Color(0xff495057), size: 24),
+      toolbarTextStyle: lightAppBarTextTheme.bodyMedium,
+      titleTextStyle: lightAppBarTextTheme.titleLarge,
     ),
     navigationRailTheme: NavigationRailThemeData(
         selectedIconTheme:
@@ -220,16 +226,6 @@ class AppTheme {
         elevation: 3,
         selectedLabelTextStyle: TextStyle(color: Color(0xFF27ae61)),
         unselectedLabelTextStyle: TextStyle(color: Color(0xff495057))),
-    colorScheme: ColorScheme.light(
-        primary: Color(0xFF27ae61),
-        onPrimary: Colors.white,
-        primaryVariant: Color(0xFF3aa668),
-        secondary: Color(0xff495057),
-        secondaryVariant: Color(0xff3cd278),
-        onSecondary: Colors.white,
-        surface: Color(0xffe2e7f1),
-        background: Color(0xfff3f4f7),
-        onBackground: Color(0xff495057)),
     cardTheme: CardTheme(
       color: Colors.white,
       shadowColor: Colors.black.withOpacity(0.4),
@@ -267,13 +263,11 @@ class AppTheme {
         hoverColor: Color(0xFF27ae61),
         foregroundColor: Colors.white),
     dividerColor: Color(0xffd1d1d1),
-    errorColor: Color(0xfff0323c),
     cardColor: Colors.white,
-    accentColor: Color(0xFF27ae61),
     popupMenuTheme: PopupMenuThemeData(
       color: Color(0xffffffff),
       textStyle:
-          lightTextTheme.bodyText2.merge(TextStyle(color: Color(0xff495057))),
+          lightTextTheme.bodyMedium.merge(TextStyle(color: Color(0xff495057))),
     ),
     bottomAppBarTheme:
         BottomAppBarTheme(color: Color(0xffffffff), elevation: 2),
@@ -300,33 +294,34 @@ class AppTheme {
         color: Colors.white,
       ),
     ),
+    colorScheme: ColorScheme.light(
+            primary: Color(0xFF27ae61),
+            onPrimary: Colors.white,
+            secondary: Color(0xff495057),
+            onSecondary: Colors.white,
+            surface: Color(0xffe2e7f1),
+            background: Color(0xfff3f4f7),
+            onBackground: Color(0xff495057))
+        .copyWith(secondary: Color(0xFF27ae61))
+        .copyWith(background: Colors.white)
+        .copyWith(error: Color(0xfff0323c)),
   );
 
+  // ignore: todo
   //TODO: CHANGE DARK THEME COLOR SCHEME
   static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
       canvasColor: Colors.transparent,
       primaryColor: Color(0xFF27ae61),
       scaffoldBackgroundColor: Color(0xff464c52),
-      backgroundColor: Color(0xff464c52),
       appBarTheme: AppBarTheme(
-        textTheme: darkAppBarTextTheme,
         actionsIconTheme: IconThemeData(
           color: Color(0xffffffff),
         ),
         color: Color(0xff2e343b),
         iconTheme: IconThemeData(color: Color(0xffffffff), size: 24),
-      ),
-      colorScheme: ColorScheme.dark(
-        primary: Color(0xFF27ae61),
-        primaryVariant: Color(0xFF27ae61),
-        secondary: Color(0xff00cc77),
-        secondaryVariant: Color(0xff00cc77),
-        background: Color(0xff343a40),
-        onPrimary: Colors.white,
-        onBackground: Colors.white,
-        onSecondary: Colors.white,
-        surface: Color(0xff585e63),
+        toolbarTextStyle: darkAppBarTextTheme.bodyMedium,
+        titleTextStyle: darkAppBarTextTheme.titleLarge,
       ),
       cardTheme: CardTheme(
         color: Color(0xff37404a),
@@ -355,7 +350,6 @@ class AppTheme {
             borderSide: BorderSide(width: 1, color: Colors.white70)),
       ),
       dividerColor: Color(0xffd1d1d1),
-      errorColor: Colors.orange,
       cardColor: Color(0xff282a2b),
       splashColor: Colors.white.withAlpha(100),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -366,11 +360,10 @@ class AppTheme {
           focusColor: Color(0xFF27ae61),
           hoverColor: Color(0xFF27ae61),
           foregroundColor: Colors.white),
-      accentColor: Color(0xFF27ae61),
       popupMenuTheme: PopupMenuThemeData(
         color: Color(0xff37404a),
-        textStyle:
-            lightTextTheme.bodyText2.merge(TextStyle(color: Color(0xffffffff))),
+        textStyle: lightTextTheme.bodyMedium
+            .merge(TextStyle(color: Color(0xffffffff))),
       ),
       bottomAppBarTheme:
           BottomAppBarTheme(color: Color(0xff464c52), elevation: 2),
@@ -397,7 +390,19 @@ class AppTheme {
           color: Colors.white,
         ),
       ),
-      cupertinoOverrideTheme: CupertinoThemeData());
+      cupertinoOverrideTheme: CupertinoThemeData(),
+      colorScheme: ColorScheme.dark(
+        primary: Color(0xFF27ae61),
+        secondary: Color(0xff00cc77),
+        background: Color(0xff343a40),
+        onPrimary: Colors.white,
+        onBackground: Colors.white,
+        onSecondary: Colors.white,
+        surface: Color(0xff585e63),
+      )
+          .copyWith(secondary: Color(0xFF27ae61))
+          .copyWith(background: Color(0xff464c52))
+          .copyWith(error: Colors.orange));
 
   static ThemeData getThemeFromThemeMode(int themeMode) {
     if (themeMode == themeLight) {
@@ -429,8 +434,6 @@ class AppTheme {
       bgLayer2: Color(0xfff9f9f9),
       bgLayer3: Color(0xffe8ecf4),
       bgLayer4: Color(0xffdcdee3),
-
-
       disabledColor: Color(0xff636363),
       onDisabled: Color(0xffffffff),
       colorInfo: Color(0xffff784b),
@@ -442,8 +445,8 @@ class AppTheme {
       onWarning: Color(0xffffffff),
       colorError: Color(0xfff0323c),
       onError: Color(0xffffffff),
-      shimmerBaseColor : Color(0xFFF5F5F5),
-      shimmerHighlightColor : Color(0xFFE0E0E0));
+      shimmerBaseColor: Color(0xFFF5F5F5),
+      shimmerHighlightColor: Color(0xFFE0E0E0));
   static final CustomAppTheme darkCustomAppTheme = CustomAppTheme(
       bgLayer1: Color(0xff212429),
       bgLayer2: Color(0xff282930),
@@ -460,14 +463,12 @@ class AppTheme {
       onWarning: Color(0xffffffff),
       colorError: Color(0xfff0323c),
       onError: Color(0xffffffff),
-      shimmerBaseColor : Color(0xFF1a1a1a),
-      shimmerHighlightColor : Color(0xFF454545));
+      shimmerBaseColor: Color(0xFF1a1a1a),
+      shimmerHighlightColor: Color(0xFF454545));
 }
 
 class CustomAppTheme {
-
   static const Color starColor = Color(0xfff9c700);
-
 
   final Color bgLayer1,
       bgLayer2,
@@ -486,7 +487,6 @@ class CustomAppTheme {
       onError,
       shimmerBaseColor,
       shimmerHighlightColor;
-
 
   CustomAppTheme({
     this.bgLayer1 = const Color(0xffffffff),

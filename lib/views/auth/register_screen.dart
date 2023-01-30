@@ -104,14 +104,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     child: ListView(
                       padding: Spacing.top(150),
                       children: <Widget>[
-                        
                         Center(
                           child: Container(
                             margin: Spacing.top(24),
                             child: Text(
                               "Create New Account".toUpperCase(),
                               style: AppTheme.getTextStyle(
-                                  themeData.textTheme.headline6,
+                                  themeData.textTheme.titleLarge,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 700,
                                   letterSpacing: 0.5),
@@ -122,14 +121,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           margin: Spacing.fromLTRB(24, 24, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyText1,
+                                themeData.textTheme.bodyLarge,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Name",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.subtitle2,
+                                    themeData.textTheme.titleSmall,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -151,14 +150,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           margin: Spacing.fromLTRB(24, 16, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyText1,
+                                themeData.textTheme.bodyLarge,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Email Address",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.subtitle2,
+                                    themeData.textTheme.titleSmall,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -180,13 +179,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: TextFormField(
                             obscureText: showPassword,
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyText1,
+                                themeData.textTheme.bodyLarge,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                               hintStyle: AppTheme.getTextStyle(
-                                  themeData.textTheme.subtitle2,
+                                  themeData.textTheme.titleSmall,
                                   letterSpacing: 0.1,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 500),
@@ -252,7 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 "Create".toUpperCase(),
                                                 style: AppTheme.getTextStyle(
                                                     themeData
-                                                        .textTheme.bodyText2,
+                                                        .textTheme.bodyMedium,
                                                     color: themeData
                                                         .colorScheme.onPrimary,
                                                     letterSpacing: 0.8,
@@ -319,7 +318,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Text(
                                 "I have already an account",
                                 style: AppTheme.getTextStyle(
-                                    themeData.textTheme.bodyText2,
+                                    themeData.textTheme.bodyMedium,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500,
                                     decoration: TextDecoration.underline),
