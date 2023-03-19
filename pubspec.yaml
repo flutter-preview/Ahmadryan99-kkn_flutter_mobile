@@ -69,10 +69,7 @@ flutter:
     - assets/images/
 
     #Images - Categories
-    - assets/images/categories/double_tree.png
-    - assets/images/categories/earth.png
-    - assets/images/categories/love.png
-    - assets/images/categories/pinus.png
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
