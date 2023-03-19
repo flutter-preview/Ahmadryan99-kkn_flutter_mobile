@@ -2,6 +2,7 @@ import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
+import 'package:boilerplate_ui/views/logbook/nilai.dart/nilai_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -264,34 +265,37 @@ class _HomeScreenState extends State<HomeScreen> {
           width: MySize.safeWidth,
           child: DecoratedBox(
               decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(32),
+            borderRadius: BorderRadius.circular(15),
             color: Color(0xff42C83C),
           )),
         ),
-        Row(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 25, horizontal: 29),
-              child: Text(
-                'Nilai',
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+        Row(children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 25, horizontal: 29),
+            child: Text(
+              'Nilai',
+              style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 190),
-              child: Text(
-                '92,5',
-                style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
-            )
-          ],
-        )
+          ),
+          TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) => NilaiScreen()));
+              },
+              child: Container(
+                padding: EdgeInsets.only(left: 190),
+                child: Text(
+                  '92,5',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+              )),
+        ])
       ],
     );
   }
