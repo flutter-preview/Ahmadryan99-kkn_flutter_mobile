@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'app_theme.dart';
 import 'app_theme_notifier.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 Future<void> main() async {
   //You will need to initialize AppThemeNotifier class for theme changes.

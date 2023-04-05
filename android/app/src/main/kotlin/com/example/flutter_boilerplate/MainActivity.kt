@@ -1,4 +1,4 @@
-package com.example.flutter_boilerplate
+package com.example.flutter_kkn_unublitar
 
 import io.flutter.embedding.android.FlutterActivity
 
