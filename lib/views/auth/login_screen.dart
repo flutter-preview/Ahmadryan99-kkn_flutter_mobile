@@ -15,22 +15,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   //Theme Data
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
 
   //Text-Field Controller
-  TextEditingController emailTFController;
-  TextEditingController passwordTFController;
+  late TextEditingController emailTFController;
+  late TextEditingController passwordTFController;
 
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   //Other Variables
-  bool isInProgress;
+  bool isInProgress = false;
   bool showPassword = false;
 
   //UI Variables
-  OutlineInputBorder allTFBorder;
+  late OutlineInputBorder allTFBorder;
 
   @override
   void initState() {
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeType);
         customAppTheme = AppTheme.getCustomAppTheme(themeType);
@@ -116,14 +116,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           margin: Spacing.fromLTRB(24, 24, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyLarge,
+                                themeData.textTheme.bodyLarge!,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Nomer Induk Mahasiswa",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.titleSmall,
+                                    themeData.textTheme.titleSmall!,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -145,13 +145,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: TextFormField(
                             obscureText: !showPassword,
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyLarge,
+                                themeData.textTheme.bodyLarge!,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                               hintStyle: AppTheme.getTextStyle(
-                                  themeData.textTheme.titleSmall,
+                                  themeData.textTheme.titleSmall!,
                                   letterSpacing: 0.1,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 500),
@@ -230,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                               "MASUK".toUpperCase(),
                                               style: AppTheme.getTextStyle(
                                                   themeData
-                                                      .textTheme.bodyMedium,
+                                                      .textTheme.bodyMedium!,
                                                   color: themeData
                                                       .colorScheme.onPrimary,
                                                   letterSpacing: 0.8,
@@ -255,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: Text(
                                 "Ada Kendala? Klick Disini",
                                 style: AppTheme.getTextStyle(
-                                    themeData.textTheme.bodyMedium,
+                                    themeData.textTheme.bodyMedium!,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500,
                                     decoration: TextDecoration.underline),
@@ -270,7 +270,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void showMessage({String message = "Something wrong", Duration duration}) {
+  void showMessage({String message = "Something wrong", Duration? duration}) {
     if (duration == null) {
       duration = Duration(seconds: 3);
     }

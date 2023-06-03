@@ -8,8 +8,6 @@ import 'package:shimmer/shimmer.dart';
 class LoadingScreens {
   static Widget getHomeLoading(BuildContext context, ThemeData themeData,
       CustomAppTheme customAppTheme) {
-
-        
     List<Widget> listCategory = [];
     for (int i = 0; i < 4; i++) {
       listCategory.add(Padding(
@@ -20,12 +18,10 @@ class LoadingScreens {
     List<Widget> listNewsItem = [];
     for (int i = 0; i < 4; i++) {
       listNewsItem.add(Padding(
-        padding: Spacing.vertical(10),
-        child:
-      boxShimmer(
-          height: MediaQuery.of(context).size.width * 0.3,
-          width: MediaQuery.of(context).size.width * 1)
-      ));
+          padding: Spacing.vertical(10),
+          child: boxShimmer(
+              height: MediaQuery.of(context).size.width * 0.3,
+              width: MediaQuery.of(context).size.width * 1)));
     }
 
     return Shimmer.fromColors(
@@ -64,7 +60,6 @@ class LoadingScreens {
               children: listCategory,
             ),
             SizedBox(height: 16),
-
             Column(children: listNewsItem)
           ],
         ),
@@ -601,7 +596,7 @@ class LoadingScreens {
     return singleLoading;
   }
 
-  static Widget boxShimmer({double height, double width}) {
+  static Widget boxShimmer({double? height, double? width}) {
     return Container(
       height: height,
       width: width,
@@ -612,7 +607,7 @@ class LoadingScreens {
     );
   }
 
-  static Widget circleShimmer({double height, double size}) {
+  static Widget circleShimmer({double? height, double? size}) {
     return Container(
       height: size,
       width: size,

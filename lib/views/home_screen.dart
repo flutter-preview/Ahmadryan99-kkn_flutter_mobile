@@ -14,8 +14,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   //ThemeData
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
 
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeType);
         customAppTheme = AppTheme.getCustomAppTheme(themeType);
@@ -144,11 +144,11 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Text("Welcome",
               style: AppTheme.getTextStyle(
-                themeData.textTheme.titleLarge,
+                themeData.textTheme.titleLarge!,
               )),
           Text(
             "Ahmad Ryan N. Y.",
-            style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
+            style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                 color: themeData.colorScheme.primary, fontWeight: 700),
           ),
         ],
@@ -313,13 +313,13 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Info Kelompok",
-                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
+                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
                   onTap: () {},
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
-                          themeData.textTheme.bodySmall,
+                          themeData.textTheme.bodySmall!,
                           fontWeight: 700,
                           color: themeData.colorScheme.primary))),
             ],
@@ -361,7 +361,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text(
               nameCategoryList[index],
               textAlign: TextAlign.center,
-              style: AppTheme.getTextStyle(themeData.textTheme.bodySmall,
+              style: AppTheme.getTextStyle(themeData.textTheme.bodySmall!,
                   fontWeight: 600, letterSpacing: 0),
             ),
           )
@@ -379,13 +379,13 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("Acara",
-                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge,
+                  style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
                   onTap: () {},
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
-                          themeData.textTheme.bodySmall,
+                          themeData.textTheme.bodySmall!,
                           fontWeight: 700,
                           color: themeData.colorScheme.primary))),
             ],

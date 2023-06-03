@@ -10,8 +10,8 @@ class NilaiScreen extends StatefulWidget {
 
 class _NilaiScreenState extends State<NilaiScreen> {
   //ThemeData
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -48,7 +48,7 @@ class _NilaiScreenState extends State<NilaiScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeType);
         customAppTheme = AppTheme.getCustomAppTheme(themeType);

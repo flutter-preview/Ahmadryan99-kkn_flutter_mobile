@@ -12,7 +12,7 @@ import 'logbook/logbook_screen.dart';
 class AppScreen extends StatefulWidget {
   final int selectedPage;
 
-  const AppScreen({Key key, this.selectedPage = 0}) : super(key: key);
+  const AppScreen({Key? key, this.selectedPage = 0}) : super(key: key);
 
   @override
   _AppScreenState createState() => _AppScreenState();
@@ -22,7 +22,7 @@ class _AppScreenState extends State<AppScreen>
     with SingleTickerProviderStateMixin {
   int _currentIndex = 0;
 
-  TabController _tabController;
+  late TabController _tabController;
 
   _handleTabSelection() {
     setState(() {
@@ -43,12 +43,12 @@ class _AppScreenState extends State<AppScreen>
     _tabController.dispose();
   }
 
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
 
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeMode = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeMode);
         customAppTheme = AppTheme.getCustomAppTheme(themeMode);
@@ -65,7 +65,7 @@ class _AppScreenState extends State<AppScreen>
                     color: customAppTheme.bgLayer1,
                     boxShadow: [
                       BoxShadow(
-                        color: themeData.cardTheme.shadowColor.withAlpha(40),
+                        color: themeData.cardTheme.shadowColor!.withAlpha(40),
                         blurRadius: 3,
                         offset: Offset(0, -3),
                       ),

@@ -14,13 +14,13 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   //Theme Data
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
 
   //Text Field Editing Controller
-  TextEditingController nameTFController;
-  TextEditingController emailTFController;
-  TextEditingController passwordTFController;
+  late TextEditingController nameTFController;
+  late TextEditingController emailTFController;
+  late TextEditingController passwordTFController;
 
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -30,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool isInProgress = false;
 
   //UI Variables
-  OutlineInputBorder allTFBorder;
+  late OutlineInputBorder allTFBorder;
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeType);
         customAppTheme = AppTheme.getCustomAppTheme(themeType);
@@ -110,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             child: Text(
                               "Create New Account".toUpperCase(),
                               style: AppTheme.getTextStyle(
-                                  themeData.textTheme.titleLarge,
+                                  themeData.textTheme.titleLarge!,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 700,
                                   letterSpacing: 0.5),
@@ -121,14 +121,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           margin: Spacing.fromLTRB(24, 24, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyLarge,
+                                themeData.textTheme.bodyLarge!,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Name",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.titleSmall,
+                                    themeData.textTheme.titleSmall!,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -150,14 +150,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           margin: Spacing.fromLTRB(24, 16, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyLarge,
+                                themeData.textTheme.bodyLarge!,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                                 hintText: "Email Address",
                                 hintStyle: AppTheme.getTextStyle(
-                                    themeData.textTheme.titleSmall,
+                                    themeData.textTheme.titleSmall!,
                                     letterSpacing: 0.1,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500),
@@ -179,13 +179,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: TextFormField(
                             obscureText: showPassword,
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.bodyLarge,
+                                themeData.textTheme.bodyLarge!,
                                 letterSpacing: 0.1,
                                 color: themeData.colorScheme.onBackground,
                                 fontWeight: 500),
                             decoration: InputDecoration(
                               hintStyle: AppTheme.getTextStyle(
-                                  themeData.textTheme.titleSmall,
+                                  themeData.textTheme.titleSmall!,
                                   letterSpacing: 0.1,
                                   color: themeData.colorScheme.onBackground,
                                   fontWeight: 500),
@@ -251,7 +251,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                 "Create".toUpperCase(),
                                                 style: AppTheme.getTextStyle(
                                                     themeData
-                                                        .textTheme.bodyMedium,
+                                                        .textTheme.bodyMedium!,
                                                     color: themeData
                                                         .colorScheme.onPrimary,
                                                     letterSpacing: 0.8,
@@ -318,7 +318,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Text(
                                 "I have already an account",
                                 style: AppTheme.getTextStyle(
-                                    themeData.textTheme.bodyMedium,
+                                    themeData.textTheme.bodyMedium!,
                                     color: themeData.colorScheme.onBackground,
                                     fontWeight: 500,
                                     decoration: TextDecoration.underline),
@@ -333,7 +333,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  void showMessage({String message = "Something wrong", Duration duration}) {
+  void showMessage({String message = "Something wrong", Duration? duration}) {
     if (duration == null) {
       duration = Duration(seconds: 3);
     }

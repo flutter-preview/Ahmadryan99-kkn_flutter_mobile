@@ -49,18 +49,18 @@ class AppTheme {
       bool muted = false,
       bool xMuted = false,
       double letterSpacing = 0.15,
-      Color color,
+      Color? color,
       TextDecoration decoration = TextDecoration.none,
-      double height,
+      double? height,
       double wordSpacing = 0,
-      double fontSize}) {
-    double finalFontSize = fontSize != null ? fontSize : textStyle.fontSize;
+      double? fontSize}) {
+    double? finalFontSize = fontSize != null ? fontSize : textStyle.fontSize;
 
-    Color finalColor;
+    Color? finalColor;
     if (color == null) {
       finalColor = xMuted
-          ? textStyle.color.withAlpha(160)
-          : (muted ? textStyle.color.withAlpha(200) : textStyle.color);
+          ? textStyle.color!.withAlpha(160)
+          : (muted ? textStyle.color!.withAlpha(200) : textStyle.color);
     } else {
       finalColor = xMuted
           ? color.withAlpha(160)
@@ -267,7 +267,7 @@ class AppTheme {
     popupMenuTheme: PopupMenuThemeData(
       color: Color(0xffffffff),
       textStyle:
-          lightTextTheme.bodyMedium.merge(TextStyle(color: Color(0xff495057))),
+          lightTextTheme.bodyMedium?.merge(TextStyle(color: Color(0xff495057))),
     ),
     bottomAppBarTheme:
         BottomAppBarTheme(color: Color(0xffffffff), elevation: 2),
@@ -363,7 +363,7 @@ class AppTheme {
       popupMenuTheme: PopupMenuThemeData(
         color: Color(0xff37404a),
         textStyle: lightTextTheme.bodyMedium
-            .merge(TextStyle(color: Color(0xffffffff))),
+            ?.merge(TextStyle(color: Color(0xffffffff))),
       ),
       bottomAppBarTheme:
           BottomAppBarTheme(color: Color(0xff464c52), elevation: 2),
@@ -510,7 +510,7 @@ class CustomAppTheme {
 }
 
 class NavigationBarTheme {
-  Color backgroundColor,
+  late Color backgroundColor,
       selectedItemIconColor,
       selectedItemTextColor,
       selectedItemColor,

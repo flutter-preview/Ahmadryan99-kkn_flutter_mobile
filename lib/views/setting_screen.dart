@@ -14,8 +14,8 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   //ThemeData
-  ThemeData themeData;
-  CustomAppTheme customAppTheme;
+  late ThemeData themeData;
+  late CustomAppTheme customAppTheme;
 
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -30,7 +30,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         int themeType = value.themeMode();
         themeData = AppTheme.getThemeFromThemeMode(themeType);
         customAppTheme = AppTheme.getCustomAppTheme(themeType);
@@ -47,7 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   centerTitle: true,
                   title: Text("Setting",
                       style: AppTheme.getTextStyle(
-                          themeData.appBarTheme.titleTextStyle,
+                          themeData.appBarTheme.titleTextStyle!,
                           fontWeight: 600,
                           color: themeData.colorScheme.onPrimary)),
                 ),
@@ -100,11 +100,11 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: [
                   Text("Ahmad Ryan N. Y.",
                       style: AppTheme.getTextStyle(
-                        themeData.textTheme.titleLarge,
+                        themeData.textTheme.titleLarge!,
                       )),
                   Text("Kelompok 4",
                       style: AppTheme.getTextStyle(
-                        themeData.textTheme.bodySmall,
+                        themeData.textTheme.bodySmall!,
                         fontWeight: 500,
                       )),
                 ],
@@ -140,7 +140,10 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  _menuItem({String title, IconData icon, Function onTap}) {
+  _menuItem(
+      {required String title,
+      required IconData icon,
+      required Function() onTap}) {
     return InkWell(
         onTap: onTap,
         child: Container(
@@ -155,7 +158,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 SizedBox(width: MySize.size24),
                 Text(title,
                     style: AppTheme.getTextStyle(
-                      themeData.textTheme.titleMedium,
+                      themeData.textTheme.titleMedium!,
                       fontWeight: 600,
                     ))
               ],

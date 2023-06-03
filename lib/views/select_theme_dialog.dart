@@ -10,7 +10,7 @@ class SelectThemeDialog extends StatefulWidget {
 }
 
 class _SelectThemeDialogState extends State<SelectThemeDialog> {
-  ThemeData themeData;
+  late ThemeData themeData;
 
   void _handleRadioValueChange(int value) {
     Navigator.of(context).pop();
@@ -22,7 +22,7 @@ class _SelectThemeDialogState extends State<SelectThemeDialog> {
   Widget build(BuildContext context) {
     themeData = Theme.of(context);
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         return Dialog(
           child: Container(
             padding: Spacing.only(top: 16, bottom: 16),
@@ -37,17 +37,18 @@ class _SelectThemeDialogState extends State<SelectThemeDialog> {
                     padding: Spacing.only(top: 16, bottom: 0, left: 16),
                     child: Row(
                       children: <Widget>[
-                        Radio(
-                          onChanged: (value) {
-                            _handleRadioValueChange(value);
-                          },
-                          groupValue: value.themeMode(),
-                          value: AppTheme.themeLight,
-                          activeColor: themeData.colorScheme.primary,
-                        ),
+                        // Radio(
+                          
+                        //   onChanged: (value) {
+                        //     _handleRadioValueChange(value);
+                        //   },
+                        //   groupValue: value.themeMode(),
+                        //   value: AppTheme.themeLight,
+                        //   activeColor: themeData.colorScheme.primary,
+                        // ),
                         Text("Light",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.titleSmall,
+                                themeData.textTheme.titleSmall!,
                                 fontWeight: 600)),
                       ],
                     ),
@@ -61,17 +62,17 @@ class _SelectThemeDialogState extends State<SelectThemeDialog> {
                     padding: Spacing.only(top: 0, bottom: 0, left: 16),
                     child: Row(
                       children: <Widget>[
-                        Radio(
-                          onChanged: (value) {
-                            _handleRadioValueChange(value);
-                          },
-                          groupValue: value.themeMode(),
-                          value: AppTheme.themeDark,
-                          activeColor: themeData.colorScheme.secondary,
-                        ),
+                        // Radio(
+                        //   onChanged: (value) {
+                        //     _handleRadioValueChange(value);
+                        //   },
+                        //   groupValue: value.themeMode(),
+                        //   value: AppTheme.themeDark,
+                        //   activeColor: themeData.colorScheme.secondary,
+                        // ),
                         Text("Dark",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.titleSmall,
+                                themeData.textTheme.titleSmall!,
                                 fontWeight: 600)),
                       ],
                     ),

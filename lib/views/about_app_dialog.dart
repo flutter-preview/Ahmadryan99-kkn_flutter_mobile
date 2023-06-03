@@ -11,14 +11,14 @@ class AboutAppDialog extends StatefulWidget {
 }
 
 class _AboutAppDialogState extends State<AboutAppDialog> {
-  ThemeData themeData;
+  late ThemeData themeData;
 
   String appDescription = "aplikasi ini masih coba coba";
 
   Widget build(BuildContext context) {
     themeData = Theme.of(context);
     return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget child) {
+      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
         return StatefulBuilder(builder: (context, setState) {
           return Dialog(
               elevation: 0,
@@ -44,13 +44,13 @@ class _AboutAppDialogState extends State<AboutAppDialog> {
                         children: <Widget>[
                           Text("Aplikasi Apa Ini : ",
                               style: AppTheme.getTextStyle(
-                                themeData.textTheme.titleLarge,
+                                themeData.textTheme.titleLarge!,
                               )),
                           SizedBox(height: MySize.size10),
                           Text(
                             "Aplikasi Kuntul",
                             style: AppTheme.getTextStyle(
-                                themeData.textTheme.titleLarge,
+                                themeData.textTheme.titleLarge!,
                                 color: themeData.colorScheme.primary,
                                 fontWeight: 700),
                           ),
@@ -74,7 +74,7 @@ class _AboutAppDialogState extends State<AboutAppDialog> {
                               child: Text(appDescription,
                                   textAlign: TextAlign.justify,
                                   style: AppTheme.getTextStyle(
-                                    themeData.textTheme.bodySmall,
+                                    themeData.textTheme.bodySmall!,
                                   )),
                             ),
                           )
