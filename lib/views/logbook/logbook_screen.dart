@@ -5,22 +5,16 @@ import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter/material.dart';
+
+import '../penulisan_logbook_screen.dart';
+
 class LogbookScreen extends StatefulWidget {
   @override
   _LogbookScreenState createState() => _LogbookScreenState();
 }
 
 class _LogbookScreenState extends State<LogbookScreen> {
-  //ThemeData
-  late ThemeData themeData;
-  late CustomAppTheme customAppTheme;
-  //Global Keys
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
-  final GlobalKey<RefreshIndicatorState> _refreshIndicatorKey =
-      new GlobalKey<RefreshIndicatorState>();
-
-  //Other Variables
   bool isInProgress = false;
 
   @override
@@ -56,68 +50,82 @@ class _LogbookScreenState extends State<LogbookScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AppThemeNotifier>(
-      builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
-        int themeType = value.themeMode();
-        themeData = AppTheme.getThemeFromThemeMode(themeType);
-        customAppTheme = AppTheme.getCustomAppTheme(themeType);
-        return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
-            home: SafeArea(
-              child: Scaffold(
-                  appBar: AppBar(
-                    centerTitle: true,
-                    leading: IconButton(
-                      icon: Icon(
-                        Icons.arrow_back_ios,
-                      ),
-                      onPressed: () {},
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Log Book',
+          style: TextStyle(color: Colors.black, fontSize: 20),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        backgroundColor: Colors.white,
+        color: Colors.blue,
+        child: Column(
+          children: [
+            Container(
+              height: 3,
+              child: isInProgress
+                  ? LinearProgressIndicator(
+                      minHeight: 3,
+                    )
+                  : Container(
+                      height: 3,
                     ),
-                    title: Text(
-                      'Log Book',
-                      style: TextStyle(color: Colors.black, fontSize: 20),
-                    ),
-                  ),
-                  key: _scaffoldKey,
-                  backgroundColor: customAppTheme.bgLayer1,
-                  body: RefreshIndicator(
-                    onRefresh: _refresh,
-                    backgroundColor: customAppTheme.bgLayer1,
-                    color: themeData.colorScheme.primary,
-                    key: _refreshIndicatorKey,
-                    child: Column(
-                      children: [
-                        Container(
-                          height: MySize.size3,
-                          child: isInProgress
-                              ? LinearProgressIndicator(
-                                  minHeight: MySize.size3,
-                                )
-                              : Container(
-                                  height: MySize.size3,
-                                ),
-                        ),
-                        Expanded(
-                          child: _buildBody(),
-                        )
-                      ],
-                    ),
-                  )),
-            ));
-      },
+            ),
+            Expanded(
+              child: _buildBody(),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PenulisanPage(),
+            ),
+          );
+        },
+        child: Container(
+          width: 200,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color(0xff71D16A),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Tambah',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
   _buildBody() {
     if (isInProgress) {
-      return LoadingScreens.getHomeLoading(context, themeData, customAppTheme);
-    } else if (!isInProgress) {
-      return Container(
-          padding: Spacing.only(left: 8, top: 20, right: 8),
-          child: ListView.builder(
-              itemCount: 30,
-              itemBuilder: (_, index) => logbookItem(index: index)));
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    } else {
+      return ListView.builder(
+        padding: EdgeInsets.only(left: 8, top: 20, right: 8),
+        itemCount: 30,
+        itemBuilder: (_, index) => logbookItem(index: index),
+      );
     }
   }
 
@@ -129,8 +137,9 @@ class _LogbookScreenState extends State<LogbookScreen> {
             height: 60,
             width: 60,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xff71D16A)),
+              borderRadius: BorderRadius.circular(10),
+              color: Color(0xff71D16A),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -138,32 +147,37 @@ class _LogbookScreenState extends State<LogbookScreen> {
                   '$index',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700),
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
                 Text(
                   'DES',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700),
-                )
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
               ],
             ),
           ),
           title: Text(
             'Berangkat Ke Desa Bakung',
-            style: TextStyle(color: Colors.black, fontSize: 14),
+            style: TextStyle(color: Colors.black, fontSize: 18),
           ),
           subtitle: Text(
             'Kelompok 1 berangkat bersama-sama ke Desa...',
-            style: TextStyle(color: Colors.black, fontSize: 10),
+            style: TextStyle(color: Colors.black, fontSize: 11),
           ),
           trailing: Icon(Icons.keyboard_arrow_right),
           onTap: () {
-            print('horse');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => PenulisanPage()),
+            );
           },
           selected: true,
         ),

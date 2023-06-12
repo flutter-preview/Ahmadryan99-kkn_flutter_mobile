@@ -2,12 +2,19 @@
 
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/auth/login_screen.dart';
+import 'package:boilerplate_ui/views/home_screen.dart';
+import 'package:boilerplate_ui/views/logbook/logbook_screen.dart';
+import 'package:boilerplate_ui/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'app_theme.dart';
 import 'app_theme_notifier.dart';
 import 'package:firebase_core/firebase_core.dart';
+
+import 'views/setting_screen.dart';
+import 'views/upload_screen.dart';
 
 Future<void> main() async {
   //You will need to initialize AppThemeNotifier class for theme changes.
@@ -26,10 +33,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppThemeNotifier>(
       builder: (BuildContext context, AppThemeNotifier value, Widget? child) {
-        return MaterialApp(
+        return GetMaterialApp(
+            onInit: () {
+              MySize().init(context);
+            },
             debugShowCheckedModeBanner: false,
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
-            home: MyHomePage());
+            home: SplashScreen());
       },
     );
   }

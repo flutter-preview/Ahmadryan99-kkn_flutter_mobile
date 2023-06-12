@@ -56,13 +56,13 @@ class _AppScreenState extends State<AppScreen>
           debugShowCheckedModeBanner: false,
           theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
           home: Scaffold(
-            backgroundColor: customAppTheme.bgLayer1,
+            backgroundColor: themeData.colorScheme.primary,
             bottomNavigationBar: BottomAppBar(
                 elevation: 0,
                 shape: CircularNotchedRectangle(),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: customAppTheme.bgLayer1,
+                    color: themeData.colorScheme.primary,
                     boxShadow: [
                       BoxShadow(
                         color: themeData.cardTheme.shadowColor!.withAlpha(40),
@@ -86,12 +86,12 @@ class _AppScreenState extends State<AppScreen>
                                 children: <Widget>[
                                   Icon(
                                     MdiIcons.home,
-                                    color: themeData.colorScheme.primary,
+                                    color: Colors.white,
                                   ),
                                   Container(
-                                    margin: Spacing.top(4),
+                                    margin: Spacing.top(2),
                                     decoration: BoxDecoration(
-                                        color: themeData.colorScheme.primary,
+                                        color: Colors.white,
                                         borderRadius: new BorderRadius.all(
                                             Radius.circular(2.5))),
                                     height: 5,
@@ -101,7 +101,7 @@ class _AppScreenState extends State<AppScreen>
                               )
                             : Icon(
                                 MdiIcons.home,
-                                color: themeData.colorScheme.onBackground,
+                                color: Colors.white,
                               ),
                       ),
                       Container(
@@ -110,13 +110,13 @@ class _AppScreenState extends State<AppScreen>
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     Icon(
-                                      MdiIcons.chat,
-                                      color: themeData.colorScheme.primary,
+                                      MdiIcons.fileDocumentOutline,
+                                      color: Colors.white,
                                     ),
                                     Container(
                                       margin: Spacing.top(4),
                                       decoration: BoxDecoration(
-                                          color: themeData.colorScheme.primary,
+                                          color: Colors.white,
                                           borderRadius: new BorderRadius.all(
                                               Radius.circular(2.5))),
                                       height: 5,
@@ -125,8 +125,8 @@ class _AppScreenState extends State<AppScreen>
                                   ],
                                 )
                               : Icon(
-                                  MdiIcons.chat,
-                                  color: themeData.colorScheme.onBackground,
+                                  MdiIcons.fileDocumentOutline,
+                                  color: Colors.white,
                                 )),
                       Container(
                           child: (_currentIndex == 2)
@@ -134,13 +134,13 @@ class _AppScreenState extends State<AppScreen>
                                   mainAxisSize: MainAxisSize.min,
                                   children: <Widget>[
                                     Icon(
-                                      MdiIcons.bell,
-                                      color: themeData.colorScheme.primary,
+                                      MdiIcons.fileUploadOutline,
+                                      color: Colors.white,
                                     ),
                                     Container(
                                       margin: Spacing.top(4),
                                       decoration: BoxDecoration(
-                                          color: themeData.colorScheme.primary,
+                                          color: Colors.white,
                                           borderRadius: new BorderRadius.all(
                                               Radius.circular(2.5))),
                                       height: 5,
@@ -149,8 +149,8 @@ class _AppScreenState extends State<AppScreen>
                                   ],
                                 )
                               : Icon(
-                                  MdiIcons.bell,
-                                  color: themeData.colorScheme.onBackground,
+                                  MdiIcons.fileUploadOutline,
+                                  color: Colors.white,
                                 )),
                       Container(
                           child: (_currentIndex == 3)
@@ -159,12 +159,12 @@ class _AppScreenState extends State<AppScreen>
                                   children: <Widget>[
                                     Icon(
                                       MdiIcons.cog,
-                                      color: themeData.colorScheme.primary,
+                                      color: Colors.white,
                                     ),
                                     Container(
                                       margin: Spacing.top(4),
                                       decoration: BoxDecoration(
-                                          color: themeData.colorScheme.primary,
+                                          color: Colors.white,
                                           borderRadius: new BorderRadius.all(
                                               Radius.circular(2.5))),
                                       height: 5,
@@ -174,7 +174,7 @@ class _AppScreenState extends State<AppScreen>
                                 )
                               : Icon(
                                   MdiIcons.cog,
-                                  color: themeData.colorScheme.onBackground,
+                                  color: Colors.white,
                                 )),
                     ],
                   ),
