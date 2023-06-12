@@ -2,7 +2,7 @@ import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
-import 'package:boilerplate_ui/views/logbook/nilai.dart/nilai_page.dart';
+import 'package:boilerplate_ui/views/nilai_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 themeData.textTheme.titleLarge!,
               )),
           Text(
-            "Ahmad Ryan N. Y.",
+            "Nama Mahasiswa",
             style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                 color: themeData.colorScheme.primary, fontWeight: 700),
           ),
@@ -163,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    "./assets/images/profil.png",
+                    "./assets/images/no-image.png",
                   ),
                 )),
             height: MySize.size54,

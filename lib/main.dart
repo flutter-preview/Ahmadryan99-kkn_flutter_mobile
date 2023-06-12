@@ -3,7 +3,7 @@
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:boilerplate_ui/views/home_screen.dart';
-import 'package:boilerplate_ui/views/logbook/logbook_screen.dart';
+import 'package:boilerplate_ui/views/logbook_screen.dart';
 import 'package:boilerplate_ui/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

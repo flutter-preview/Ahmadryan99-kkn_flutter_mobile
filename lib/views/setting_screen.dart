@@ -1,11 +1,13 @@
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/select_theme_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
 import '../app_theme.dart';
 import '../app_theme_notifier.dart';
 import 'about_app_dialog.dart';
+import 'nilai_page.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -79,40 +81,78 @@ class _SettingScreenState extends State<SettingScreen> {
           padding: Spacing.symmetric(horizontal: 20, vertical: 20),
           child: Row(
             children: [
-              ClipOval(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: themeData.colorScheme.primary.withAlpha(20),
-                      border: Border.all(width: 1),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          "./assets/images/profil.png",
-                        ),
-                      )),
-                  height: MySize.size68,
-                  width: MySize.size68,
+              Container(
+                height: 50,
+                width: 50,
+                child: Icon(
+                  MdiIcons.accountCircle,
+                  color: themeData.colorScheme.primary,
+                  size: 60,
                 ),
               ),
               SizedBox(width: MySize.size18),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Ahmad Ryan N. Y.",
+                  Text("Nama Mahasiswa",
                       style: AppTheme.getTextStyle(
                         themeData.textTheme.titleLarge!,
                       )),
                   Text("Kelompok 4",
                       style: AppTheme.getTextStyle(
-                        themeData.textTheme.bodySmall!,
+                        themeData.textTheme.bodyLarge!,
                         fontWeight: 500,
+                        color: themeData.colorScheme.primary,
                       )),
                 ],
               ),
             ],
           ),
         ),
-        Divider(),
+        SizedBox(height: MySize.size16),
+        Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                height: 60,
+                width: MySize.safeWidth,
+                child: DecoratedBox(
+                    decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Color(0xff42C83C),
+                )),
+              ),
+            ),
+            Row(children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+                child: Text(
+                  'Nilai',
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => NilaiScreen()));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.only(left: 190),
+                    child: Text(
+                      '92,5',
+                      style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )),
+            ])
+          ],
+        ),
         _menuItem(
             title: "Pengaturan Profil",
             icon: Icons.person,
@@ -129,13 +169,14 @@ class _SettingScreenState extends State<SettingScreen> {
             icon: Icons.shield_outlined,
             onTap: () {}),
         _menuItem(
-            title: "Tentang Kami",
-            icon: Icons.accessibility_new_rounded,
-            onTap: () {
-              showDialog(
-                  context: context,
-                  builder: (BuildContext context) => AboutAppDialog());
-            }),
+          title: "Tentang Kami",
+          icon: Icons.accessibility_new_rounded,
+          onTap: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) => AboutAppDialog());
+          },
+        ),
       ],
     );
   }

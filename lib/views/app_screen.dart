@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 import 'upload_screen.dart';
-import 'logbook/logbook_screen.dart';
+import 'logbook_screen.dart';
 
 class AppScreen extends StatefulWidget {
   final int selectedPage;
@@ -58,134 +58,163 @@ class _AppScreenState extends State<AppScreen>
           home: Scaffold(
             backgroundColor: themeData.colorScheme.primary,
             bottomNavigationBar: BottomAppBar(
-                elevation: 0,
-                shape: CircularNotchedRectangle(),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: themeData.colorScheme.primary,
-                    boxShadow: [
-                      BoxShadow(
-                        color: themeData.cardTheme.shadowColor!.withAlpha(40),
-                        blurRadius: 3,
-                        offset: Offset(0, -3),
-                      ),
-                    ],
-                  ),
-                  padding: Spacing.only(top: 12, bottom: 12),
-                  child: TabBar(
-                    controller: _tabController,
-                    indicator: BoxDecoration(),
-                    indicatorSize: TabBarIndicatorSize.tab,
-                    indicatorColor: themeData.colorScheme.primary,
-                    tabs: <Widget>[
-                      Container(
-                        child: (_currentIndex == 0)
-                            ? Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  Icon(
-                                    MdiIcons.home,
-                                    color: Colors.white,
-                                  ),
-                                  Container(
-                                    margin: Spacing.top(2),
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: new BorderRadius.all(
-                                            Radius.circular(2.5))),
-                                    height: 5,
-                                    width: 10,
-                                  )
-                                ],
-                              )
-                            : Icon(
-                                MdiIcons.home,
+              elevation: 0,
+              shape: CircularNotchedRectangle(),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: themeData.colorScheme.primary,
+                  boxShadow: [
+                    BoxShadow(
+                      color: themeData.cardTheme.shadowColor!.withAlpha(40),
+                      blurRadius: 3,
+                      offset: Offset(0, -3),
+                    ),
+                  ],
+                ),
+                padding: Spacing.only(top: 12, bottom: 12),
+                child: TabBar(
+                  controller: _tabController,
+                  indicator: BoxDecoration(),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: themeData.colorScheme.primary,
+                  tabs: <Widget>[
+                    Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            MdiIcons.home,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            "Beranda",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                          Visibility(
+                            visible: _currentIndex == 0 ? true : false,
+                            child: Container(
+                              margin: Spacing.top(2),
+                              decoration: BoxDecoration(
                                 color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(2.5)),
                               ),
+                              height: 5,
+                              width: 10,
+                            ),
+                          )
+                        ],
                       ),
-                      Container(
-                          child: (_currentIndex == 1)
-                              ? Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Icon(
-                                      MdiIcons.fileDocumentOutline,
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      margin: Spacing.top(4),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: new BorderRadius.all(
-                                              Radius.circular(2.5))),
-                                      height: 5,
-                                      width: 10,
-                                    )
-                                  ],
-                                )
-                              : Icon(
-                                  MdiIcons.fileDocumentOutline,
+                    ),
+                    Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            MdiIcons.fileDocumentOutline,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            "Logbook",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                          Visibility(
+                              visible: _currentIndex == 1 ? true : false,
+                              child: Container(
+                                margin: Spacing.top(4),
+                                decoration: BoxDecoration(
                                   color: Colors.white,
-                                )),
-                      Container(
-                          child: (_currentIndex == 2)
-                              ? Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Icon(
-                                      MdiIcons.fileUploadOutline,
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      margin: Spacing.top(4),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: new BorderRadius.all(
-                                              Radius.circular(2.5))),
-                                      height: 5,
-                                      width: 10,
-                                    )
-                                  ],
-                                )
-                              : Icon(
-                                  MdiIcons.fileUploadOutline,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2.5)),
+                                ),
+                                height: 5,
+                                width: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            MdiIcons.fileUploadOutline,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            "Upload",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                          Visibility(
+                              visible: _currentIndex == 2 ? true : false,
+                              child: Container(
+                                margin: Spacing.top(4),
+                                decoration: BoxDecoration(
                                   color: Colors.white,
-                                )),
-                      Container(
-                          child: (_currentIndex == 3)
-                              ? Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: <Widget>[
-                                    Icon(
-                                      MdiIcons.cog,
-                                      color: Colors.white,
-                                    ),
-                                    Container(
-                                      margin: Spacing.top(4),
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: new BorderRadius.all(
-                                              Radius.circular(2.5))),
-                                      height: 5,
-                                      width: 10,
-                                    )
-                                  ],
-                                )
-                              : Icon(
-                                  MdiIcons.cog,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2.5)),
+                                ),
+                                height: 5,
+                                width: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Icon(
+                            MdiIcons.accountCircleOutline,
+                            color: Colors.white,
+                          ),
+                          SizedBox(height: 2),
+                          Text(
+                            "Profil",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
+                          ),
+                          Visibility(
+                              visible: _currentIndex == 3 ? true : false,
+                              child: Container(
+                                margin: Spacing.top(4),
+                                decoration: BoxDecoration(
                                   color: Colors.white,
-                                )),
-                    ],
-                  ),
-                )),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(2.5)),
+                                ),
+                                height: 5,
+                                width: 10,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
             body: TabBarView(
               controller: _tabController,
               children: <Widget>[
                 HomeScreen(),
                 LogbookScreen(),
                 UploadScreen(),
-                SettingScreen()
+                SettingScreen(),
               ],
             ),
           ),
