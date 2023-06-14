@@ -2,10 +2,13 @@ import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
-import 'package:boilerplate_ui/views/logbook/nilai.dart/nilai_page.dart';
+import 'package:boilerplate_ui/views/nilai_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import 'daftar_kelompok.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -147,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 themeData.textTheme.titleLarge!,
               )),
           Text(
-            "Ahmad Ryan N. Y.",
+            "Nama Mahasiswa",
             style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                 color: themeData.colorScheme.primary, fontWeight: 700),
           ),
@@ -163,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    "./assets/images/profil.png",
+                    "./assets/images/no-image.png",
                   ),
                 )),
             height: MySize.size54,
@@ -282,8 +285,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => NilaiScreen()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (BuildContext context) => NilaiScreen()));
+                Get.to(NilaiScreen());
               },
               child: Container(
                 padding: EdgeInsets.only(left: 190),
@@ -316,7 +320,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => InfoKelompok()));
+                  },
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
                           themeData.textTheme.bodySmall!,
@@ -346,13 +353,15 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 125,
             height: 155,
             decoration: BoxDecoration(
-                color: themeData.colorScheme.primary.withAlpha(20),
-                borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      imgCategoryList[index],
-                    ))),
+              color: themeData.colorScheme.primary.withAlpha(20),
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  imgCategoryList[index],
+                ),
+              ),
+            ),
             padding: Spacing.all(15),
           ),
           Container(

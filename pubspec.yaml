@@ -29,6 +29,7 @@ dependencies:
     sdk: flutter
   flutter_html: ^2.2.1
   font_awesome_flutter: ^10.3.0
+  get: ^4.6.5
   google_fonts: ^5.0.0
   http: ^1.0.0
   iconly: ^1.0.1
@@ -56,20 +57,13 @@ flutter:
   assets:
 
     #Logo
-    - assets/images/logo.png
     - assets/images/banner1.png
     #Placeholder Images
-    - assets/images/placeholder/no-image.png
+    - assets/images/no-image.png
 
     #Images - Illustrations
-    - assets/images/person.jpg
-    - assets/images/banner.png
-    - assets/images/forest.png
-    - assets/images/images.jpg
     - assets/images/
-
     #Images - Categories
-    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
