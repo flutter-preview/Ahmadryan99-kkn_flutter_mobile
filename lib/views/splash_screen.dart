@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:boilerplate_ui/views/auth/login_screen.dart';
+import 'package:boilerplate_ui/app/modules/login/page/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
