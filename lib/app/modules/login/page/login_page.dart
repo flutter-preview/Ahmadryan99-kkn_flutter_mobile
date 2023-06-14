@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import '../../../../views/app_screen.dart';
 import '../controllers/login_controller.dart';
 
-class LoginScreen extends GetView<LoginController> {
+class LoginPage extends GetView<LoginController> {
 
   Widget build(BuildContext context) {
     return Scaffold(
