@@ -1,6 +1,74 @@
+import 'package:boilerplate_ui/views/info_daftar_kelompok.dart';
 import 'package:flutter/material.dart';
 
+class ImageInfo {
+  final String imagePath;
+  final String title;
+  final String description;
+
+  ImageInfo({
+    required this.imagePath,
+    required this.title,
+    required this.description,
+  });
+}
+
 class InfoKelompok extends StatelessWidget {
+  final List<ImageInfo> imageList = [
+    ImageInfo(
+      imagePath: 'assets/images/kelompok1.png',
+      title: 'Gambar 1',
+      description: 'Informasi tentang Gambar 1',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok2.png',
+      title: 'Gambar 2',
+      description: 'Informasi tentang Gambar 2',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok3.png',
+      title: 'Gambar 3',
+      description: 'Informasi tentang Gambar 3',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok1.png',
+      title: 'Gambar 1',
+      description: 'Informasi tentang Gambar 1',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok2.png',
+      title: 'Gambar 2',
+      description: 'Informasi tentang Gambar 2',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok3.png',
+      title: 'Gambar 3',
+      description: 'Informasi tentang Gambar 3',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok1.png',
+      title: 'Gambar 1',
+      description: 'Informasi tentang Gambar 1',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok2.png',
+      title: 'Gambar 2',
+      description: 'Informasi tentang Gambar 2',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok3.png',
+      title: 'Gambar 3',
+      description: 'Informasi tentang Gambar 3',
+    ),
+    ImageInfo(
+      imagePath: 'assets/images/kelompok1.png',
+      title: 'Gambar 1',
+      description: 'Informasi tentang Gambar 1',
+    ),
+
+    // Tambahkan lebih banyak gambar di sini
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,68 +76,55 @@ class InfoKelompok extends StatelessWidget {
         centerTitle: true,
         title: Text('Daftar Kelompok'),
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 15,
-                crossAxisSpacing: 15,
-                childAspectRatio: 0.8,
-              ),
-              itemCount: 10,
-              itemBuilder: (context, index) => CustomGridItemWidget(
-                index: index,
-              ),
-            ),
+      body: Padding(
+        padding: const EdgeInsets.all(25),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Ubah jumlah gambar per baris di sini
+            mainAxisSpacing: 30,
+            crossAxisSpacing: 36,
+            childAspectRatio: 1, // Sesuaikan rasio sesuai kebutuhan
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomGridItemWidget extends StatelessWidget {
-  const CustomGridItemWidget({
-    Key? key,
-    required this.index,
-  }) : super(key: key);
-
-  final int index;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Image.network(
-            "https://picsum.photos/id/${2 + index}/500/500",
-            fit: BoxFit.cover,
-          ),
-          Positioned.fill(
-            child: Container(
-              alignment: Alignment.bottomLeft,
-              color: Colors.black.withOpacity(0.4),
-              child: Text(
-                'Kelompok ${index + 1}',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+          itemCount: imageList.length,
+          itemBuilder: (context, index) {
+            final imageInfo = imageList[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InformasiKelompokPage(),
+                  ),
+                );
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      image: DecorationImage(
+                        image: AssetImage(imageInfo.imagePath),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    left: 10,
+                    child: Text(
+                      'Kelompok ${index + 1}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ),
-        ],
+            );
+          },
+        ),
       ),
     );
   }
