@@ -1,5 +1,6 @@
 // ignore_for_file: unused_import
 
+import 'package:boilerplate_ui/app/modules/login/controllers/login_controller.dart';
 import 'package:boilerplate_ui/app/modules/login/page/login_page.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/home_screen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
             onInit: () {
               MySize().init(context);
+              Get.put(LoginController());
             },
             debugShowCheckedModeBanner: false,
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
