@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
+import 'acara_page.dart';
 import 'daftar_kelompok.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -200,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                           margin: Spacing.only(top: 10),
                           decoration: BoxDecoration(
-                            color: Color(0xff42C83C),
+                            color: themeData.colorScheme.primary,
                             borderRadius: BorderRadius.all(Radius.circular(32)),
                           ),
                           height: 149,
@@ -269,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: DecoratedBox(
               decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Color(0xff42C83C),
+            color: themeData.colorScheme.primary,
           )),
         ),
         Row(children: [
@@ -391,7 +392,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                       fontWeight: 700, color: themeData.colorScheme.secondary)),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => InfoAcara()));
+                  },
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
                           themeData.textTheme.bodySmall!,

@@ -168,15 +168,6 @@ class _SettingScreenState extends State<SettingScreen> {
             title: "Kebijakan Privasi",
             icon: Icons.shield_outlined,
             onTap: () {}),
-        _menuItem(
-          title: "Tentang Kami",
-          icon: Icons.accessibility_new_rounded,
-          onTap: () {
-            showDialog(
-                context: context,
-                builder: (BuildContext context) => AboutAppDialog());
-          },
-        ),
       ],
     );
   }
