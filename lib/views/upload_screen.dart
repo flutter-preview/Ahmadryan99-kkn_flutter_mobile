@@ -59,193 +59,145 @@ class _UploadScreenState extends State<UploadScreen> {
             theme: AppTheme.getThemeFromThemeMode(value.themeMode()),
             home: SafeArea(
               child: Scaffold(
-                appBar: AppBar(
-                  centerTitle: true,
-                  title: Text(
-                    'Upload',
-                    style: TextStyle(color: Colors.black, fontSize: 20),
-                  ),
-                ),
-                key: _scaffoldKey,
-                backgroundColor: customAppTheme.bgLayer1,
-                body: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Stack(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(left: 15, top: 21),
-                        child: SizedBox(
-                          width: 360,
-                          height: 201,
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: themeData.colorScheme.primary,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        left: 40,
-                        top: 30,
-                        child: Row(
-                          children: [
-                            Icon(IconlyLight.document, color: Colors.white),
-                            Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 3)),
-                            Text(
-                              'Artikel',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            )
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        left: 26,
-                        top: 65,
-                        child: DottedBorder(
-                          borderType: BorderType.RRect,
-                          color: Colors.white,
-                          radius: Radius.circular(12),
-                          child: Container(
-                            height: 135,
-                            width: 335,
-                            color: Color.fromARGB(255, 147, 211, 144),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                          left: 130,
-                          top: 120,
-                          child: Container(
-                            height: 30,
-                            width: 122,
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12)),
-                              color: Colors.white,
-                            ),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 22, vertical: 7),
-                                  child: Text(
-                                    'Pilih File',
-                                    style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                                Icon(
-                                  IconlyBold.arrow_down_2,
-                                  color: Colors.black,
-                                )
-                              ],
-                            ),
-                          )),
-                      Stack(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.only(left: 15, top: 257),
-                            child: SizedBox(
-                              child: Container(
-                                width: 360,
-                                height: 110,
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: themeData.colorScheme.primary,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 265,
-                            left: 5,
-                            child: Row(
-                              children: [
-                                Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 18, vertical: 2)),
-                                Icon(
-                                  IconlyBold.video,
-                                  color: Colors.white,
-                                ),
-                                Padding(
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 3)),
-                                Text(
-                                  'Video',
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
-                            ),
-                          ),
-                          Positioned(
-                            left: 26,
-                            top: 295,
-                            child: DottedBorder(
-                              borderType: BorderType.RRect,
-                              color: Colors.white,
-                              radius: Radius.circular(12),
-                              child: Container(
-                                height: 45,
-                                width: 335,
-                                color: Color.fromARGB(255, 147, 211, 144),
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                              top: 310,
-                              left: 35,
-                              child: Text(
-                                'Link Video Youtube ',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FontStyle.italic,
-                                    color: Colors.white),
-                              ))
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                floatingActionButton: InkWell(
-                  onTap: () {},
-                  child: Container(
-                    width: 200,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: themeData.colorScheme.primary,
+                  appBar: AppBar(
+                    centerTitle: true,
+                    title: Text(
+                      'Upload',
+                      style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  ),
+                  key: _scaffoldKey,
+                  backgroundColor: customAppTheme.bgLayer1,
+                  body: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: ListView(
                       children: [
-                        Text(
-                          'Simpan',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
+                        baseCard(
+                          title: "Artikel",
+                          icon: IconlyBold.document,
+                        ),
+                        baseCard(
+                          title: "Video",
+                          icon: IconlyBold.video,
+                          height: 70,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                filled: true,
+                                fillColor: themeData.colorScheme.background,
+                                hintText: "Masukkan Link Video",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                  borderSide: BorderSide.none,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                ),
-              ),
+                  floatingActionButton: button),
             ));
       },
+    );
+  }
+
+  Widget get button => InkWell(
+        onTap: () {},
+        child: Container(
+          width: 200,
+          height: 50,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: themeData.colorScheme.primary,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Simpan',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+
+  Widget baseCard({
+    required String title,
+    required IconData icon,
+    double? height,
+    Widget? child,
+  }) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: themeData.colorScheme.primary,
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Icon(icon, color: Colors.white),
+                Padding(padding: EdgeInsets.symmetric(horizontal: 3)),
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                )
+              ],
+            ),
+            SizedBox(height: 10),
+            DottedBorder(
+              borderType: BorderType.RRect,
+              color: Colors.white,
+              radius: Radius.circular(12),
+              child: Container(
+                height: height ?? 200,
+                alignment: Alignment.center,
+                width: double.infinity,
+                color: Color.fromARGB(255, 147, 211, 144),
+                child: child ??
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 22, vertical: 7),
+                            child: Text(
+                              'Pilih File',
+                              style: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Icon(
+                            IconlyBold.arrow_down_2,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
+                    ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

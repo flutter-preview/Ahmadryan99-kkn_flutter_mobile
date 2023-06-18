@@ -1,4 +1,5 @@
 import 'package:boilerplate_ui/app_theme.dart';
+import 'package:boilerplate_ui/views/app_screen.dart';
 import 'package:boilerplate_ui/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,7 +30,7 @@ class LoginController extends GetxController {
     await Future.delayed(Duration(seconds: 3), () {
       isInProgress.value = false;
 
-      Get.to(HomeScreen());
+      Get.to(AppScreen());
 
       // Navigator.pushReplacement(
       //   context,

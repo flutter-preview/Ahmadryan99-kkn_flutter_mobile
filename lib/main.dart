@@ -3,6 +3,7 @@
 import 'package:boilerplate_ui/app/modules/login/controllers/login_controller.dart';
 import 'package:boilerplate_ui/app/modules/login/page/login_page.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
+import 'package:boilerplate_ui/views/app_screen.dart';
 import 'package:boilerplate_ui/views/home_screen.dart';
 import 'package:boilerplate_ui/views/logbook_screen.dart';
 import 'package:boilerplate_ui/views/splash_screen.dart';
@@ -66,6 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     MySize().init(context);
     themeData = Theme.of(context);
-    return LoginPage();
+    return AppScreen();
   }
 }
