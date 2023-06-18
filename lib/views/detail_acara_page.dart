@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EventDetailPage extends StatelessWidget {
+class DetailAcaraPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: EventDetailPage(),
+      home: DetailAcaraPage(),
     );
   }
 }

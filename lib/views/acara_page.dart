@@ -81,19 +81,16 @@ class InfoAcara extends StatelessWidget {
     final imageInfo = imageList[index];
     return Column(
       children: [
-        InkWell(
-          onTap: () {},
-          child: Container(
-            height: MySize.getScaledSizeHeight(150),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(imageInfo.imagePath),
-              ),
+        Container(
+          height: MySize.getScaledSizeHeight(150),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(imageInfo.imagePath),
             ),
-            margin: Spacing.symmetric(vertical: 10),
           ),
+          margin: Spacing.symmetric(vertical: 10),
         ),
         Container(
           padding: Spacing.symmetric(horizontal: 10),

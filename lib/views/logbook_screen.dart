@@ -134,7 +134,6 @@ class _LogbookScreenState extends State<LogbookScreen> {
       children: [
         ListTile(
           leading: Container(
-            height: 60,
             width: 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -166,7 +165,7 @@ class _LogbookScreenState extends State<LogbookScreen> {
           ),
           title: Text(
             'Berangkat Ke Desa Bakung',
-            style: TextStyle(color: Colors.black, fontSize: 18),
+            style: TextStyle(color: Colors.black, fontSize: 16),
           ),
           subtitle: Text(
             'Kelompok 1 berangkat bersama-sama ke Desa...',

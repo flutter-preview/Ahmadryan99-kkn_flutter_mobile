@@ -319,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text("Info Kelompok",
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
-                      fontWeight: 700, color: themeData.colorScheme.secondary)),
+                      fontWeight: 700, color: Colors.black)),
               InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
@@ -390,7 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text("Acara",
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
-                      fontWeight: 700, color: themeData.colorScheme.secondary)),
+                      fontWeight: 700, color: Colors.black)),
               InkWell(
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
