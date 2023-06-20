@@ -1,5 +1,7 @@
+import 'package:boilerplate_ui/views/detail_acara_page.dart';
 import 'package:boilerplate_ui/views/info_daftar_kelompok.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../app_theme.dart';
 import '../utils/SizeConfig.dart';
@@ -79,40 +81,47 @@ class InfoAcara extends StatelessWidget {
 
   Widget _singleNews(int index) {
     final imageInfo = imageList[index];
-    return Column(
-      children: [
-        Container(
-          height: MySize.getScaledSizeHeight(150),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(imageInfo.imagePath),
+    return InkWell(
+      onTap: () {
+        Get.to(DetailAcaraPage());
+      },
+      child: Column(
+        children: [
+          Container(
+            height: MySize.getScaledSizeHeight(150),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(imageInfo.imagePath),
+              ),
+            ),
+            margin: Spacing.symmetric(vertical: 10),
+          ),
+          Container(
+            padding: Spacing.symmetric(horizontal: 10),
+            child: Text(
+              imageInfo.description,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal),
+              maxLines: 2,
             ),
           ),
-          margin: Spacing.symmetric(vertical: 10),
-        ),
-        Container(
-          padding: Spacing.symmetric(horizontal: 10),
-          child: Text(
-            imageInfo.description,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-                fontWeight: FontWeight.normal),
-            maxLines: 2,
+          Container(
+            padding: Spacing.symmetric(horizontal: 10),
+            alignment: Alignment.topLeft,
+            child: Text(
+              imageInfo.title,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        Container(
-          padding: Spacing.symmetric(horizontal: 10),
-          alignment: Alignment.topLeft,
-          child: Text(
-            imageInfo.title,
-            style: TextStyle(
-                color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

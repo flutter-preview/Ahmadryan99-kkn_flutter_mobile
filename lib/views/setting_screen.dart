@@ -1,6 +1,9 @@
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
+import 'package:boilerplate_ui/views/detail_pusat_bantuan.dart';
 import 'package:boilerplate_ui/views/select_theme_dialog.dart';
+import 'package:boilerplate_ui/views/ubah_password.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -155,19 +158,26 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         _menuItem(
             title: "Pengaturan Profil",
-            icon: Icons.person,
+            icon: IconlyBold.profile,
             onTap: () {
               showDialog(
                   context: context,
-                  builder: (BuildContext context) => SelectThemeDialog());
+                  builder: (BuildContext context) => ChangePasswordPage());
             }),
         _menuItem(title: "Tema", icon: Icons.star_rate_rounded, onTap: () {}),
         _menuItem(
-            title: "Pusat Bantuan", icon: Icons.call_rounded, onTap: () {}),
+            title: "Pusat Bantuan",
+            icon: Icons.call_rounded,
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => PusatBantuan());
+            }),
         _menuItem(
             title: "Kebijakan Privasi",
             icon: Icons.shield_outlined,
             onTap: () {}),
+        _menuItem(title: "Keluar", icon: Icons.logout, onTap: () {}),
       ],
     );
   }

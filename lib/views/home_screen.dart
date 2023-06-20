@@ -1,6 +1,8 @@
 import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
+import 'package:boilerplate_ui/views/detail_acara_page.dart';
+import 'package:boilerplate_ui/views/info_daftar_kelompok.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:boilerplate_ui/views/nilai_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -195,46 +197,27 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [1, 2, 3, 4].map((i) {
               return Builder(
                 builder: (BuildContext context) {
-                  return Stack(
-                    children: [
-                      Positioned(
-                        child: Container(
-                          margin: Spacing.only(top: 10),
-                          decoration: BoxDecoration(
-                            color: themeData.colorScheme.primary,
-                            borderRadius: BorderRadius.all(Radius.circular(32)),
-                          ),
-                          height: 149,
-                          width: MySize.safeWidth,
-                          alignment: Alignment.topLeft,
-                          padding: const EdgeInsets.all(19),
-                          child: Container(
-                            child: const SizedBox(
-                              width: 87,
-                              child: Text(
-                                'Percaya dengan kami?Berarti Anda Musyrik',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ),
-                          ),
+                  return Container(
+                    margin: Spacing.only(top: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(32)),
+                    ),
+                    height: 149,
+                    width: MySize.safeWidth,
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.all(19),
+                    child: Container(
+                      child: const SizedBox(
+                        width: 87,
+                        child: Text(
+                          '',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700),
                         ),
                       ),
-                      Positioned(
-                        bottom: 0,
-                        left: 70,
-                        child: Container(
-                          height: 135,
-                          width: 325,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                            image: AssetImage("./assets/images/banner1.png"),
-                          )),
-                        ),
-                      )
-                    ],
+                    ),
                   );
                 },
               );
@@ -348,34 +331,40 @@ class _HomeScreenState extends State<HomeScreen> {
   _singleCategory(int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: 125,
-            height: 155,
-            decoration: BoxDecoration(
-              color: themeData.colorScheme.primary.withAlpha(20),
-              borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(
-                  imgCategoryList[index],
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => InformasiKelompokPage()));
+        },
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: 125,
+              height: 155,
+              decoration: BoxDecoration(
+                color: themeData.colorScheme.primary.withAlpha(20),
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    imgCategoryList[index],
+                  ),
                 ),
               ),
+              padding: Spacing.all(15),
             ),
-            padding: Spacing.all(15),
-          ),
-          Container(
-            width: MySize.size76,
-            padding: Spacing.top(8),
-            child: Text(
-              nameCategoryList[index],
-              textAlign: TextAlign.center,
-              style: AppTheme.getTextStyle(themeData.textTheme.bodySmall!,
-                  fontWeight: 600, letterSpacing: 0),
-            ),
-          )
-        ],
+            Container(
+              width: MySize.size76,
+              padding: Spacing.top(8),
+              child: Text(
+                nameCategoryList[index],
+                textAlign: TextAlign.center,
+                style: AppTheme.getTextStyle(themeData.textTheme.bodySmall!,
+                    fontWeight: 600, letterSpacing: 0),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -417,14 +406,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _singleNews(int index) {
     return Column(children: [
-      Container(
-        height: MySize.getScaledSizeHeight(150),
-        decoration: BoxDecoration(
-            color: themeData.colorScheme.primary.withAlpha(20),
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage(imgNews[index]))),
-        margin: Spacing.symmetric(vertical: 10),
+      InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => DetailAcaraPage()));
+        },
+        child: Container(
+          height: MySize.getScaledSizeHeight(150),
+          decoration: BoxDecoration(
+              color: themeData.colorScheme.primary.withAlpha(20),
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                  fit: BoxFit.cover, image: AssetImage(imgNews[index]))),
+          margin: Spacing.symmetric(vertical: 10),
+        ),
       ),
       Container(
         child: Text(

@@ -62,17 +62,20 @@ class InformasiKelompokPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Informasi Kelompok'),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Nama Kelompok', // Ganti dengan nama kelompok yang sesuai
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                'Nama Kelompok', // Ganti dengan nama kelompok yang sesuai
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             SizedBox(height: 20),
