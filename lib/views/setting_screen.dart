@@ -1,8 +1,11 @@
+import 'package:boilerplate_ui/app/modules/login/page/login_page.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/detail_pusat_bantuan.dart';
+import 'package:boilerplate_ui/views/kebijakan_privasi.dart';
 import 'package:boilerplate_ui/views/select_theme_dialog.dart';
 import 'package:boilerplate_ui/views/ubah_password.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
@@ -176,8 +179,17 @@ class _SettingScreenState extends State<SettingScreen> {
         _menuItem(
             title: "Kebijakan Privasi",
             icon: Icons.shield_outlined,
-            onTap: () {}),
-        _menuItem(title: "Keluar", icon: Icons.logout, onTap: () {}),
+            onTap: () {
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => KebijakanPrivasi());
+            }),
+        _menuItem(
+            title: "Keluar",
+            icon: Icons.logout,
+            onTap: () {
+              Get.to(LoginPage());
+            }),
       ],
     );
   }
@@ -187,23 +199,27 @@ class _SettingScreenState extends State<SettingScreen> {
       required IconData icon,
       required Function() onTap}) {
     return InkWell(
-        onTap: onTap,
-        child: Container(
-            padding: Spacing.fromLTRB(30, 20, 20, 20),
-            child: Row(
-              children: [
-                Icon(
-                  icon,
-                  color: themeData.colorScheme.secondary,
-                  size: MySize.size28,
-                ),
-                SizedBox(width: MySize.size24),
-                Text(title,
-                    style: AppTheme.getTextStyle(
-                      themeData.textTheme.titleMedium!,
-                      fontWeight: 600,
-                    ))
-              ],
-            )));
+      onTap: onTap,
+      child: Container(
+        padding: Spacing.fromLTRB(30, 20, 20, 20),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              color: themeData.colorScheme.secondary,
+              size: MySize.size28,
+            ),
+            SizedBox(width: MySize.size24),
+            Text(
+              title,
+              style: AppTheme.getTextStyle(
+                themeData.textTheme.titleMedium!,
+                fontWeight: 600,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

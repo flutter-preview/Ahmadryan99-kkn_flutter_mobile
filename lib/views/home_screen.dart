@@ -2,6 +2,7 @@ import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/views/detail_acara_page.dart';
+import 'package:boilerplate_ui/views/detail_pengumuman.dart';
 import 'package:boilerplate_ui/views/info_daftar_kelompok.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
 import 'package:boilerplate_ui/views/nilai_page.dart';
@@ -134,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView(
             children: [
               _userProfile(),
+              SizedBox(height: 20),
               _sliderBanner(),
               _totalNilai(),
               _categoriesWidget(),
@@ -183,61 +185,60 @@ class _HomeScreenState extends State<HomeScreen> {
   _sliderBanner() {
     return Column(
       children: [
-        CarouselSlider(
-            options: CarouselOptions(
-                height: 150,
-                viewportFraction: 1,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                }),
-            items: [1, 2, 3, 4].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    margin: Spacing.only(top: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(32)),
-                    ),
-                    height: 149,
-                    width: MySize.safeWidth,
-                    alignment: Alignment.topLeft,
-                    padding: const EdgeInsets.all(19),
-                    child: Container(
-                      child: const SizedBox(
-                        width: 87,
-                        child: Text(
-                          '',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              );
-            }).toList()),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [1, 2, 3, 4].map((i) {
-            int index = [1, 2, 3, 4].indexOf(i);
-            return Container(
-              width: MySize.size8,
-              height: MySize.size8,
-              margin: Spacing.symmetric(horizontal: 4, vertical: 4),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _current == index
-                    ? themeData.colorScheme.secondaryContainer
-                    : Colors.grey[400],
+        Stack(
+          children: [
+            Container(
+              height: 69,
+              width: MySize.safeWidth,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: themeData.colorScheme.primary,
+                ),
               ),
-            );
-          }).toList(),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: TextButton(
+                onPressed: () {
+                  // Navigasi ke halaman selanjutnya di sini
+                  Get.to(DetailPengumuman());
+                },
+                child: Text(
+                  'PENGUMUMAN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- Informasi Tentang KKN',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- Pembukaan KKN Angkatan 2020/2021',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- PENTING!!! Aturan Pengumpulan Artikel',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
         ),
         SizedBox(height: 12),
       ],
