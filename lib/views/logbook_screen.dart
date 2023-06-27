@@ -1,13 +1,7 @@
-import 'package:boilerplate_ui/app_theme.dart';
-import 'package:boilerplate_ui/app_theme_notifier.dart';
-import 'package:boilerplate_ui/utils/SizeConfig.dart';
-import 'package:boilerplate_ui/views/loading_screens.dart';
+import 'package:boilerplate_ui/views/detail_penulisan.dart';
+import 'package:boilerplate_ui/views/penulisan_logbook_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'package:flutter/material.dart';
-
-import 'penulisan_logbook_screen.dart';
+import 'package:intl/intl.dart';
 
 class LogbookScreen extends StatefulWidget {
   @override
@@ -15,173 +9,99 @@ class LogbookScreen extends StatefulWidget {
 }
 
 class _LogbookScreenState extends State<LogbookScreen> {
-  bool isInProgress = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadHomeData();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  _loadHomeData() async {
-    if (mounted) {
-      setState(() {
-        isInProgress = true;
-      });
-    }
-
-    await Future.delayed(Duration(seconds: 1), () {
-      if (mounted) {
-        setState(() {
-          isInProgress = false;
-        });
-      }
-    });
-  }
-
-  Future<void> _refresh() async {
-    _loadHomeData();
-  }
+  final List<LogbookEntry> logbookEntries = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Log Book'),
         centerTitle: true,
-        title: Text(
-          'Log Book',
-          style: TextStyle(color: Colors.black, fontSize: 20),
-        ),
       ),
-      backgroundColor: Colors.white,
-      body: RefreshIndicator(
-        onRefresh: _refresh,
-        backgroundColor: Colors.white,
-        color: Colors.blue,
-        child: Column(
-          children: [
-            Container(
-              height: 3,
-              child: isInProgress
-                  ? LinearProgressIndicator(
-                      minHeight: 3,
-                    )
-                  : Container(
-                      height: 3,
+      body: ListView.builder(
+        itemCount: logbookEntries.length,
+        itemBuilder: (context, index) {
+          LogbookEntry entry = logbookEntries[index];
+          String formattedDate = DateFormat('dd').format(entry.date);
+          String formattedMonth = DateFormat('MMM').format(entry.date);
+          String formattedTime =
+              '${entry.time.hour}:${entry.time.minute.toString().padLeft(2, '0')}';
+
+          return ListTile(
+            leading: Container(
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: Offset(0, 3),
+                  ),
+                ],
+                color: Colors.grey,
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      formattedDate,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-            ),
-            Expanded(
-              child: _buildBody(),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PenulisanPage(),
-            ),
-          );
-        },
-        child: Container(
-          width: 200,
-          height: 50,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Color(0xff71D16A),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Tambah',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
+                    Text(
+                      formattedMonth,
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ),
+            ),
+            title: Text(entry.activity),
+            subtitle: Text(entry.description),
+            trailing: Icon(Icons.chevron_right),
+            onTap: () {
+              _navigateToPenulisanDetail(entry);
+            },
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _navigateToPenulisanPage();
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
 
-  _buildBody() {
-    if (isInProgress) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    } else {
-      return ListView.builder(
-        padding: EdgeInsets.only(left: 8, top: 20, right: 8),
-        itemCount: 30,
-        itemBuilder: (_, index) => logbookItem(index: index),
-      );
+  void _navigateToPenulisanPage() async {
+    LogbookEntry? result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PenulisanPage(),
+      ),
+    );
+    if (result != null) {
+      setState(() {
+        logbookEntries.add(result);
+      });
     }
   }
 
-  Widget logbookItem({int? index}) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Container(
-            width: 60,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color(0xff71D16A),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '$index',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Text(
-                  'DES',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          title: Text(
-            'Berangkat Ke Desa Bakung',
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
-          subtitle: Text(
-            'Kelompok 1 berangkat bersama-sama ke Desa...',
-            style: TextStyle(color: Colors.black, fontSize: 11),
-          ),
-          trailing: Icon(Icons.keyboard_arrow_right),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PenulisanPage()),
-            );
-          },
-          selected: true,
-        ),
-        Divider(),
-      ],
+  void _navigateToPenulisanDetail(LogbookEntry entry) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PenulisanDetailScreen(entry: entry),
+      ),
     );
   }
 }
