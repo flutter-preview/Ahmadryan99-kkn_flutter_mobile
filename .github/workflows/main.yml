@@ -37,6 +37,10 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      # Runs a set of commands using the runners shell
+      # Runs build debug
       - name: Start release build
-        run: flutter build apk --split-per-abi
+        run: flutter build apk --debug
+      - uses: actions/upload-artifact@v3
+        with:
+          name: debug-apk
+          path: build\app\outputs\flutter-apk\app-debug.apk
