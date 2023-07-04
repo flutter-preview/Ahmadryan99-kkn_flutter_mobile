@@ -39,7 +39,7 @@ dependencies:
   shared_preferences: ^2.0.15
   shimmer: ^3.0.0
   url_launcher: ^6.1.6
-  sqflite: ^2.2.8+4
+  sqflite: 
 
 dev_dependencies:
   flutter_test:
