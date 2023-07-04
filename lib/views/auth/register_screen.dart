@@ -2,7 +2,6 @@ import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
 import 'package:boilerplate_ui/utils/Validator.dart';
-import 'package:boilerplate_ui/views/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
@@ -75,12 +74,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
       });
 
       await Future.delayed(Duration(seconds: 3), () {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => LoginScreen(),
-          ),
-        );
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (BuildContext context) => LoginScreen(),
+        //   ),
+        // );
       });
     }
   }
@@ -310,10 +309,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             margin: Spacing.top(16),
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => LoginScreen()));
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => LoginScreen()));
                               },
                               child: Text(
                                 "I have already an account",

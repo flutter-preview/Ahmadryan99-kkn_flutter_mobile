@@ -1,11 +1,18 @@
 import 'package:boilerplate_ui/app_theme.dart';
 import 'package:boilerplate_ui/app_theme_notifier.dart';
 import 'package:boilerplate_ui/utils/SizeConfig.dart';
+import 'package:boilerplate_ui/views/detail_acara_page.dart';
+import 'package:boilerplate_ui/views/detail_pengumuman.dart';
+import 'package:boilerplate_ui/views/info_daftar_kelompok.dart';
 import 'package:boilerplate_ui/views/loading_screens.dart';
-import 'package:boilerplate_ui/views/logbook/nilai.dart/nilai_page.dart';
+import 'package:boilerplate_ui/views/nilai_page.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+
+import 'acara_page.dart';
+import 'daftar_kelompok.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -128,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: ListView(
             children: [
               _userProfile(),
+              SizedBox(height: 20),
               _sliderBanner(),
               _totalNilai(),
               _categoriesWidget(),
@@ -147,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 themeData.textTheme.titleLarge!,
               )),
           Text(
-            "Ahmad Ryan N. Y.",
+            "Nama Mahasiswa",
             style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
                 color: themeData.colorScheme.primary, fontWeight: 700),
           ),
@@ -163,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: AssetImage(
-                    "./assets/images/profil.png",
+                    "./assets/images/no-image.png",
                   ),
                 )),
             height: MySize.size54,
@@ -177,80 +185,60 @@ class _HomeScreenState extends State<HomeScreen> {
   _sliderBanner() {
     return Column(
       children: [
-        CarouselSlider(
-            options: CarouselOptions(
-                height: 150,
-                viewportFraction: 1,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                }),
-            items: [1, 2, 3, 4].map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Stack(
-                    children: [
-                      Positioned(
-                        child: Container(
-                          margin: Spacing.only(top: 10),
-                          decoration: BoxDecoration(
-                            color: Color(0xff42C83C),
-                            borderRadius: BorderRadius.all(Radius.circular(32)),
-                          ),
-                          height: 149,
-                          width: MySize.safeWidth,
-                          alignment: Alignment.topLeft,
-                          padding: const EdgeInsets.all(19),
-                          child: Container(
-                            child: const SizedBox(
-                              width: 87,
-                              child: Text(
-                                'Percaya dengan kami?Berarti Anda Musyrik',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 0,
-                        left: 70,
-                        child: Container(
-                          height: 135,
-                          width: 325,
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                            image: AssetImage("./assets/images/banner1.png"),
-                          )),
-                        ),
-                      )
-                    ],
-                  );
-                },
-              );
-            }).toList()),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [1, 2, 3, 4].map((i) {
-            int index = [1, 2, 3, 4].indexOf(i);
-            return Container(
-              width: MySize.size8,
-              height: MySize.size8,
-              margin: Spacing.symmetric(horizontal: 4, vertical: 4),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _current == index
-                    ? themeData.colorScheme.secondaryContainer
-                    : Colors.grey[400],
+        Stack(
+          children: [
+            Container(
+              height: 69,
+              width: MySize.safeWidth,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: themeData.colorScheme.primary,
+                ),
               ),
-            );
-          }).toList(),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: TextButton(
+                onPressed: () {
+                  // Navigasi ke halaman selanjutnya di sini
+                  Get.to(DetailPengumuman());
+                },
+                child: Text(
+                  'PENGUMUMAN',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- Informasi Tentang KKN',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- Pembukaan KKN Angkatan 2020/2021',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
+        ),
+        SizedBox(height: 12),
+        Container(
+          alignment: Alignment.topLeft,
+          child: Text(
+            '- PENTING!!! Aturan Pengumpulan Artikel',
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+          ),
         ),
         SizedBox(height: 12),
       ],
@@ -266,7 +254,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: DecoratedBox(
               decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: Color(0xff42C83C),
+            color: themeData.colorScheme.primary,
           )),
         ),
         Row(children: [
@@ -282,8 +270,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => NilaiScreen()));
+                // Navigator.of(context).push(MaterialPageRoute(
+                //     builder: (BuildContext context) => NilaiScreen()));
+                Get.to(NilaiScreen());
               },
               child: Container(
                 padding: EdgeInsets.only(left: 190),
@@ -314,9 +303,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text("Info Kelompok",
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
-                      fontWeight: 700, color: themeData.colorScheme.secondary)),
+                      fontWeight: 700, color: Colors.black)),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => InfoKelompok()));
+                  },
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
                           themeData.textTheme.bodySmall!,
@@ -340,32 +332,40 @@ class _HomeScreenState extends State<HomeScreen> {
   _singleCategory(int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        children: <Widget>[
-          Container(
-            width: 125,
-            height: 155,
-            decoration: BoxDecoration(
+      child: InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => InformasiKelompokPage()));
+        },
+        child: Column(
+          children: <Widget>[
+            Container(
+              width: 125,
+              height: 155,
+              decoration: BoxDecoration(
                 color: themeData.colorScheme.primary.withAlpha(20),
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      imgCategoryList[index],
-                    ))),
-            padding: Spacing.all(15),
-          ),
-          Container(
-            width: MySize.size76,
-            padding: Spacing.top(8),
-            child: Text(
-              nameCategoryList[index],
-              textAlign: TextAlign.center,
-              style: AppTheme.getTextStyle(themeData.textTheme.bodySmall!,
-                  fontWeight: 600, letterSpacing: 0),
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    imgCategoryList[index],
+                  ),
+                ),
+              ),
+              padding: Spacing.all(15),
             ),
-          )
-        ],
+            Container(
+              width: MySize.size76,
+              padding: Spacing.top(8),
+              child: Text(
+                nameCategoryList[index],
+                textAlign: TextAlign.center,
+                style: AppTheme.getTextStyle(themeData.textTheme.bodySmall!,
+                    fontWeight: 600, letterSpacing: 0),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -380,9 +380,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Text("Acara",
                   style: AppTheme.getTextStyle(themeData.textTheme.titleLarge!,
-                      fontWeight: 700, color: themeData.colorScheme.secondary)),
+                      fontWeight: 700, color: Colors.black)),
               InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => InfoAcara()));
+                  },
                   child: Text("Lihat semua",
                       style: AppTheme.getTextStyle(
                           themeData.textTheme.bodySmall!,
@@ -404,14 +407,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _singleNews(int index) {
     return Column(children: [
-      Container(
-        height: MySize.getScaledSizeHeight(150),
-        decoration: BoxDecoration(
-            color: themeData.colorScheme.primary.withAlpha(20),
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-                fit: BoxFit.cover, image: AssetImage(imgNews[index]))),
-        margin: Spacing.symmetric(vertical: 10),
+      InkWell(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (BuildContext context) => DetailAcaraPage()));
+        },
+        child: Container(
+          height: MySize.getScaledSizeHeight(150),
+          decoration: BoxDecoration(
+              color: themeData.colorScheme.primary.withAlpha(20),
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                  fit: BoxFit.cover, image: AssetImage(imgNews[index]))),
+          margin: Spacing.symmetric(vertical: 10),
+        ),
       ),
       Container(
         child: Text(
